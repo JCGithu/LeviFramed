@@ -198,6 +198,10 @@
       align-items: center;
       justify-content: center;
       height: 3rem;
+      @media (max-width: 580px) {
+        font-size: 0.8rem;
+        height: 2rem;
+      }
       box-shadow: inset 0px 0px 0px 1px rgb(255, 255, 255), 2px 2px 8px rgba(0, 0, 0, 0.1);
       &.correct {
         background-color: rgba(54, 214, 134, 0.2);

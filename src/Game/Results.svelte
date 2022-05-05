@@ -8,7 +8,7 @@
 </script>
 
 <div id="results">
-  <div>
+  <div id="resultText">
     {#if roundOutcome.won}
       <h2>Congrats!</h2>
       <p>You got it in {roundOutcome.turns}</p>
@@ -27,7 +27,7 @@
       }}>Go to Leaderboard</Button
     >
   </div>
-  <div><img class="fadeIn" src={data.Poster} alt={data.Title} /></div>
+  <div id="resultImg"><img class="fadeIn" src={data.Poster} alt={data.Title} /></div>
 </div>
 
 <style lang="scss">
@@ -35,11 +35,17 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
+    grid-template-areas:
+      "text"
+      "poster";
     gap: 0px 0px;
     @media (max-width: 580px) {
       font-size: clamp(20px, 3vh, 40px);
       grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+        "poster"
+        "text";
       font-size: 0.8rem;
       padding: 1rem;
     }
@@ -54,6 +60,12 @@
       align-items: center;
     }
   }
+  #resultText {
+    grid-area: text;
+  }
+  #resultImg {
+    grid-area: poster;
+  }
   a {
     color: var(--accent);
   }
@@ -63,6 +75,9 @@
   }
   img {
     max-width: calc(100% - 2rem);
+    @media (max-width: 580px) {
+      max-height: 25vh;
+    }
     object-fit: cover;
     position: relative;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);

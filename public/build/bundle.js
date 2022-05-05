@@ -1578,7 +1578,7 @@ var app = (function () {
     const { Error: Error_1$1, console: console_1$4 } = globals;
     const file$8 = "src\\Game\\IntroScreen.svelte";
 
-    // (137:4) <Button disabled={usernameButtonOff} style={vert ? "vert" : "inline"} func={setUsername}>
+    // (144:4) <Button disabled={usernameButtonOff} style={vert ? "vert" : "inline"} func={setUsername}>
     function create_default_slot_2(ctx) {
     	let t;
 
@@ -1601,14 +1601,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(137:4) <Button disabled={usernameButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={setUsername}>",
+    		source: "(144:4) <Button disabled={usernameButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={setUsername}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (139:2) {#if usernameSet}
+    // (146:2) {#if usernameSet}
     function create_if_block_1$2(ctx) {
     	let div;
     	let input;
@@ -1652,10 +1652,10 @@ var app = (function () {
     			create_component(button1.$$.fragment);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", /*joinPlaceholder*/ ctx[10]);
-    			attr_dev(input, "class", "svelte-4tocn3");
-    			add_location(input, file$8, 140, 6, 3910);
-    			attr_dev(div, "class", "fadeIn inputGroup svelte-4tocn3");
-    			add_location(div, file$8, 139, 4, 3871);
+    			attr_dev(input, "class", "svelte-izyw98");
+    			add_location(input, file$8, 147, 6, 4181);
+    			attr_dev(div, "class", "fadeIn inputGroup svelte-izyw98");
+    			add_location(div, file$8, 146, 4, 4142);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1728,14 +1728,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$2.name,
     		type: "if",
-    		source: "(139:2) {#if usernameSet}",
+    		source: "(146:2) {#if usernameSet}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (142:6) <Button disabled={joinButtonOff} style={vert ? "vert" : "inline"} func={joinRoom}>
+    // (149:6) <Button disabled={joinButtonOff} style={vert ? "vert" : "inline"} func={joinRoom}>
     function create_default_slot_1(ctx) {
     	let t;
 
@@ -1758,14 +1758,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(142:6) <Button disabled={joinButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={joinRoom}>",
+    		source: "(149:6) <Button disabled={joinButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={joinRoom}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (144:4) <Button style="fadeIn wide" disabled={hostButtonOff} func={hostGame}>
+    // (151:4) <Button style="fadeIn wide" disabled={hostButtonOff} func={hostGame}>
     function create_default_slot$4(ctx) {
     	let t;
 
@@ -1785,14 +1785,14 @@ var app = (function () {
     		block,
     		id: create_default_slot$4.name,
     		type: "slot",
-    		source: "(144:4) <Button style=\\\"fadeIn wide\\\" disabled={hostButtonOff} func={hostGame}>",
+    		source: "(151:4) <Button style=\\\"fadeIn wide\\\" disabled={hostButtonOff} func={hostGame}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (146:2) {#if joinError}
+    // (153:2) {#if joinError}
     function create_if_block$4(ctx) {
     	let error;
     	let current;
@@ -1833,7 +1833,7 @@ var app = (function () {
     		block,
     		id: create_if_block$4.name,
     		type: "if",
-    		source: "(146:2) {#if joinError}",
+    		source: "(153:2) {#if joinError}",
     		ctx
     	});
 
@@ -1921,30 +1921,30 @@ var app = (function () {
     			t15 = space();
     			footer = element("footer");
     			footer.textContent = "In chat no one can hear you scream...";
-    			attr_dev(h2, "class", "svelte-4tocn3");
-    			add_location(h2, file$8, 124, 4, 3202);
+    			attr_dev(h2, "class", "svelte-izyw98");
+    			add_location(h2, file$8, 131, 4, 3473);
     			attr_dev(a, "href", "http://framed.wtf");
-    			attr_dev(a, "class", "svelte-4tocn3");
-    			add_location(a, file$8, 126, 4, 3238);
-    			add_location(br0, file$8, 127, 4, 3302);
-    			add_location(br1, file$8, 129, 4, 3349);
-    			add_location(br2, file$8, 130, 4, 3361);
-    			attr_dev(h3, "class", "svelte-4tocn3");
-    			add_location(h3, file$8, 131, 4, 3373);
-    			add_location(br3, file$8, 132, 59, 3455);
-    			add_location(br4, file$8, 132, 93, 3489);
-    			attr_dev(header, "class", "svelte-4tocn3");
-    			add_location(header, file$8, 123, 2, 3188);
+    			attr_dev(a, "class", "svelte-izyw98");
+    			add_location(a, file$8, 133, 4, 3509);
+    			add_location(br0, file$8, 134, 4, 3573);
+    			add_location(br1, file$8, 136, 4, 3620);
+    			add_location(br2, file$8, 137, 4, 3632);
+    			attr_dev(h3, "class", "svelte-izyw98");
+    			add_location(h3, file$8, 138, 4, 3644);
+    			add_location(br3, file$8, 139, 59, 3726);
+    			add_location(br4, file$8, 139, 93, 3760);
+    			attr_dev(header, "class", "svelte-izyw98");
+    			add_location(header, file$8, 130, 2, 3459);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", /*userPlaceholder*/ ctx[5]);
-    			attr_dev(input, "class", "svelte-4tocn3");
-    			add_location(input, file$8, 135, 4, 3618);
-    			attr_dev(div0, "class", "fadeIn inputGroup svelte-4tocn3");
-    			add_location(div0, file$8, 134, 2, 3581);
-    			attr_dev(footer, "class", "svelte-4tocn3");
-    			add_location(footer, file$8, 148, 2, 4295);
-    			attr_dev(div1, "class", "svelte-4tocn3");
-    			add_location(div1, file$8, 122, 0, 3179);
+    			attr_dev(input, "class", "svelte-izyw98");
+    			add_location(input, file$8, 142, 4, 3889);
+    			attr_dev(div0, "class", "fadeIn inputGroup svelte-izyw98");
+    			add_location(div0, file$8, 141, 2, 3852);
+    			attr_dev(footer, "class", "svelte-izyw98");
+    			add_location(footer, file$8, 155, 2, 4566);
+    			attr_dev(div1, "class", "svelte-izyw98");
+    			add_location(div1, file$8, 129, 0, 3450);
     		},
     		l: function claim(nodes) {
     			throw new Error_1$1("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2107,7 +2107,7 @@ var app = (function () {
     	let UsernameLength = false;
     	let usernameButton = "Set Username";
     	let usernameSet = false;
-    	let usernameButtonOff = false;
+    	let usernameButtonOff = true;
     	let userPlaceholder = "Enter Username (Min. 4 characters)";
 
     	//JOIN
@@ -2170,14 +2170,25 @@ var app = (function () {
 
     	const setUsername = () => {
     		socket.emit("set-username", Username);
+    		$$invalidate(1, Username = Username.toUpperCase());
     		$$invalidate(2, usernameButton = "⏳");
 
     		socket.on("valid-username", valid => {
     			if (valid) {
     				$$invalidate(2, usernameButton = `Welcome ${Username}!`);
+
+    				if (Username.length > 10) {
+    					$$invalidate(2, usernameButton = `Welcome ${Username.substr(0, 10)}...!`);
+    				}
+
     				$$invalidate(3, usernameSet = true);
     			} else {
     				$$invalidate(2, usernameButton = `${Username} taken!`);
+
+    				if (Username.length > 10) {
+    					$$invalidate(2, usernameButton = `${Username.substr(0, 10)}... taken!`);
+    				}
+
     				$$invalidate(3, usernameSet = false);
     			}
     		});
@@ -3079,12 +3090,12 @@ var app = (function () {
     				each_blocks[i].c();
     			}
 
-    			attr_dev(h2, "class", "svelte-pnjgun");
-    			add_location(h2, file$4, 12, 6, 285);
-    			attr_dev(p, "class", "svelte-pnjgun");
-    			add_location(p, file$4, 13, 6, 311);
-    			attr_dev(section, "class", "svelte-pnjgun");
-    			add_location(section, file$4, 14, 6, 360);
+    			attr_dev(h2, "class", "svelte-1wzbqe0");
+    			add_location(h2, file$4, 12, 6, 301);
+    			attr_dev(p, "class", "svelte-1wzbqe0");
+    			add_location(p, file$4, 13, 6, 327);
+    			attr_dev(section, "class", "svelte-1wzbqe0");
+    			add_location(section, file$4, 14, 6, 376);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h2, anchor);
@@ -3160,9 +3171,9 @@ var app = (function () {
     			? "red"
     			: /*roundOutcome*/ ctx[0].turns < /*i*/ ctx[6] + 1
     				? ""
-    				: "green") + " svelte-pnjgun"));
+    				: "green") + " svelte-1wzbqe0"));
 
-    			add_location(span, file$4, 16, 10, 420);
+    			add_location(span, file$4, 16, 10, 436);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -3172,7 +3183,7 @@ var app = (function () {
     			? "red"
     			: /*roundOutcome*/ ctx[0].turns < /*i*/ ctx[6] + 1
     				? ""
-    				: "green") + " svelte-pnjgun"))) {
+    				: "green") + " svelte-1wzbqe0"))) {
     				attr_dev(span, "class", span_class_value);
     			}
     		},
@@ -3292,25 +3303,27 @@ var app = (function () {
     			t13 = space();
     			div1 = element("div");
     			img = element("img");
-    			attr_dev(h2, "class", "svelte-pnjgun");
-    			add_location(h2, file$4, 20, 24, 587);
+    			attr_dev(h2, "class", "svelte-1wzbqe0");
+    			add_location(h2, file$4, 20, 24, 603);
     			attr_dev(a, "href", a_href_value = /*data*/ ctx[1].IMDB);
-    			attr_dev(a, "class", "svelte-pnjgun");
-    			add_location(a, file$4, 20, 4, 567);
-    			add_location(br0, file$4, 21, 34, 662);
-    			add_location(br1, file$4, 21, 71, 699);
-    			attr_dev(p, "class", "svelte-pnjgun");
-    			add_location(p, file$4, 21, 4, 632);
-    			attr_dev(div0, "class", "svelte-pnjgun");
+    			attr_dev(a, "class", "svelte-1wzbqe0");
+    			add_location(a, file$4, 20, 4, 583);
+    			add_location(br0, file$4, 21, 34, 678);
+    			add_location(br1, file$4, 21, 71, 715);
+    			attr_dev(p, "class", "svelte-1wzbqe0");
+    			add_location(p, file$4, 21, 4, 648);
+    			attr_dev(div0, "id", "resultText");
+    			attr_dev(div0, "class", "svelte-1wzbqe0");
     			add_location(div0, file$4, 10, 2, 244);
-    			attr_dev(img, "class", "fadeIn svelte-pnjgun");
+    			attr_dev(img, "class", "fadeIn svelte-1wzbqe0");
     			if (!src_url_equal(img.src, img_src_value = /*data*/ ctx[1].Poster)) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", img_alt_value = /*data*/ ctx[1].Title);
-    			add_location(img, file$4, 29, 7, 887);
-    			attr_dev(div1, "class", "svelte-pnjgun");
-    			add_location(div1, file$4, 29, 2, 882);
+    			add_location(img, file$4, 29, 22, 918);
+    			attr_dev(div1, "id", "resultImg");
+    			attr_dev(div1, "class", "svelte-1wzbqe0");
+    			add_location(div1, file$4, 29, 2, 898);
     			attr_dev(div2, "id", "results");
-    			attr_dev(div2, "class", "svelte-pnjgun");
+    			attr_dev(div2, "class", "svelte-1wzbqe0");
     			add_location(div2, file$4, 9, 0, 222);
     		},
     		l: function claim(nodes) {
@@ -3540,7 +3553,7 @@ var app = (function () {
 
     			attr_dev(div, "class", div_class_value = "" + (null_to_empty(/*currentImg*/ ctx[2] === /*i*/ ctx[28] + 1
     			? "selected"
-    			: "") + " svelte-2r3btd"));
+    			: "") + " svelte-cru1bp"));
 
     			add_location(div, file$3, 131, 8, 3512);
     		},
@@ -3559,7 +3572,7 @@ var app = (function () {
 
     			if (dirty[0] & /*currentImg*/ 4 && div_class_value !== (div_class_value = "" + (null_to_empty(/*currentImg*/ ctx[2] === /*i*/ ctx[28] + 1
     			? "selected"
-    			: "") + " svelte-2r3btd"))) {
+    			: "") + " svelte-cru1bp"))) {
     				attr_dev(div, "class", div_class_value);
     			}
     		},
@@ -3699,17 +3712,17 @@ var app = (function () {
     			t2 = space();
     			create_component(button.$$.fragment);
     			attr_dev(ul0, "id", "guessGrid");
-    			attr_dev(ul0, "class", "svelte-2r3btd");
+    			attr_dev(ul0, "class", "svelte-cru1bp");
     			add_location(ul0, file$3, 143, 4, 3753);
     			attr_dev(input, "type", "text");
-    			attr_dev(input, "class", "svelte-2r3btd");
+    			attr_dev(input, "class", "svelte-cru1bp");
     			add_location(input, file$3, 149, 6, 3936);
     			attr_dev(ul1, "id", "autoselect");
-    			attr_dev(ul1, "class", "svelte-2r3btd");
+    			attr_dev(ul1, "class", "svelte-cru1bp");
     			add_location(ul1, file$3, 150, 6, 4014);
     			attr_dev(div, "id", "inputBox");
     			div.hidden = /*showSearch*/ ctx[6];
-    			attr_dev(div, "class", "svelte-2r3btd");
+    			attr_dev(div, "class", "svelte-cru1bp");
     			add_location(div, file$3, 148, 4, 3889);
     		},
     		m: function mount(target, anchor) {
@@ -3868,7 +3881,7 @@ var app = (function () {
     		c: function create() {
     			li = element("li");
     			t = text(t_value);
-    			attr_dev(li, "class", li_class_value = "" + (null_to_empty(/*guess*/ ctx[29].outcome) + " svelte-2r3btd"));
+    			attr_dev(li, "class", li_class_value = "" + (null_to_empty(/*guess*/ ctx[29].outcome) + " svelte-cru1bp"));
     			add_location(li, file$3, 145, 8, 3814);
     		},
     		m: function mount(target, anchor) {
@@ -3878,7 +3891,7 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			if (dirty[0] & /*guesses*/ 16 && t_value !== (t_value = /*guess*/ ctx[29].text + "")) set_data_dev(t, t_value);
 
-    			if (dirty[0] & /*guesses*/ 16 && li_class_value !== (li_class_value = "" + (null_to_empty(/*guess*/ ctx[29].outcome) + " svelte-2r3btd"))) {
+    			if (dirty[0] & /*guesses*/ 16 && li_class_value !== (li_class_value = "" + (null_to_empty(/*guess*/ ctx[29].outcome) + " svelte-cru1bp"))) {
     				attr_dev(li, "class", li_class_value);
     			}
     		},
@@ -3920,7 +3933,7 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = space();
     			attr_dev(li, "name", li_name_value = /*auto*/ ctx[26]);
-    			attr_dev(li, "class", "svelte-2r3btd");
+    			attr_dev(li, "class", "svelte-cru1bp");
     			add_location(li, file$3, 152, 10, 4085);
     		},
     		m: function mount(target, anchor) {
@@ -4052,12 +4065,12 @@ var app = (function () {
     			if_block.c();
     			if (!src_url_equal(img.src, img_src_value = /*imgSRC*/ ctx[0])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", /*filmThisRound*/ ctx[11].id);
-    			attr_dev(img, "class", "svelte-2r3btd");
+    			attr_dev(img, "class", "svelte-cru1bp");
     			add_location(img, file$3, 128, 4, 3392);
-    			attr_dev(div0, "class", "numList svelte-2r3btd");
+    			attr_dev(div0, "class", "numList svelte-cru1bp");
     			add_location(div0, file$3, 129, 4, 3441);
     			attr_dev(div1, "id", "topBox");
-    			attr_dev(div1, "class", "svelte-2r3btd");
+    			attr_dev(div1, "class", "svelte-cru1bp");
     			add_location(div1, file$3, 127, 2, 3369);
     			add_location(div2, file$3, 126, 0, 3360);
     		},

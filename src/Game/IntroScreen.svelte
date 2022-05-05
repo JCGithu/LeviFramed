@@ -15,7 +15,7 @@
   let UsernameLength = false;
   let usernameButton = "Set Username";
   let usernameSet = false;
-  let usernameButtonOff = false;
+  let usernameButtonOff = true;
   let userPlaceholder = "Enter Username (Min. 4 characters)";
 
   //JOIN
@@ -78,13 +78,20 @@
 
   const setUsername = () => {
     socket.emit("set-username", Username);
+    Username = Username.toUpperCase();
     usernameButton = "⏳";
     socket.on("valid-username", (valid) => {
       if (valid) {
         usernameButton = `Welcome ${Username}!`;
+        if (Username.length > 10) {
+          usernameButton = `Welcome ${Username.substr(0, 10)}...!`;
+        }
         usernameSet = true;
       } else {
         usernameButton = `${Username} taken!`;
+        if (Username.length > 10) {
+          usernameButton = `${Username.substr(0, 10)}... taken!`;
+        }
         usernameSet = false;
       }
     });
@@ -222,5 +229,8 @@
     color: #ffffff10;
     bottom: 0;
     left: 0;
+    @media (max-width: 580px) {
+      font-size: 0.5rem;
+    }
   }
 </style>
