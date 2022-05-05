@@ -8,21 +8,33 @@
   import Button from "../Components/Button.svelte";
   import Error from "../Components/Error.svelte";
 
+  let vert = false;
+
   //USERNAME
   let Username = "";
   let UsernameLength = false;
   let usernameButton = "Set Username";
   let usernameSet = false;
   let usernameButtonOff = false;
+  let userPlaceholder = "Enter Username (Min. 4 characters)";
 
   //JOIN
   let joinCode = "";
   let joinButtonOff = true;
   let joinError = false;
   let joinText = "Join!";
+  let joinPlaceholder = "Join an existing game";
 
   //HOST
   let hostButtonOff = true;
+
+  //MOBILE
+  if (window.innerWidth < 580) {
+    userPlaceholder = "Username";
+    usernameButton = "Enter";
+    joinPlaceholder = "Room Code";
+    vert = true;
+  }
 
   //FUNCTIONS
   function getRandomInt(max, min) {
@@ -121,13 +133,13 @@
     Each turn you will be shown a single image from a film.<br />Guess what you think it is! <br /> Points are earned based on how few turns you take to guess the film.
   </header>
   <div class="fadeIn inputGroup">
-    <input type="text" bind:value={Username} on:input={handleInput} placeholder="Enter Username (Min. 4 characters)" />
-    <Button disabled={usernameButtonOff} style="inline" func={setUsername}>{usernameButton}</Button>
+    <input type="text" bind:value={Username} on:input={handleInput} placeholder={userPlaceholder} />
+    <Button disabled={usernameButtonOff} style={vert ? "vert" : "inline"} func={setUsername}>{usernameButton}</Button>
   </div>
   {#if usernameSet}
     <div class="fadeIn inputGroup">
-      <input type="text" bind:value={joinCode} on:input={handleInput} placeholder="Join an existing game" />
-      <Button disabled={joinButtonOff} style="inline" func={joinRoom}>{joinText}</Button>
+      <input type="text" bind:value={joinCode} on:input={handleInput} placeholder={joinPlaceholder} />
+      <Button disabled={joinButtonOff} style={vert ? "vert" : "inline"} func={joinRoom}>{joinText}</Button>
     </div>
     <Button style="fadeIn wide" disabled={hostButtonOff} func={hostGame}>Host a game!</Button>
   {/if}
@@ -164,6 +176,9 @@
     display: flex;
     flex-direction: column;
     width: min(80%, 520px);
+    @media (max-width: 580px) {
+      width: 100%;
+    }
   }
   .inputGroup {
     width: 100%;
@@ -174,6 +189,11 @@
     border: 1px solid #ccc;
     border-radius: 1rem;
     margin: 0.5rem 0;
+    @media (max-width: 580px) {
+      flex-direction: column;
+      height: 6rem;
+      justify-content: center;
+    }
     input {
       background-color: rgba(0, 0, 0, 0);
       color: white;

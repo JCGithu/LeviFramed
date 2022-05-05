@@ -33,15 +33,7 @@
     id: roomData.films[roundIndex],
   };
   Object.assign(filmThisRound, filmData[filmThisRound.name]);
-  //filmThisRound.context = filmData[filmThisRound.name];
   console.log(filmThisRound);
-
-  /*   async function loadImage(URL) {
-    const res = await fetch(URL);
-    console.log(res);
-    imgSRC = await res.url;
-  } */
-  //loadImage(nextTurnURL);
 
   function setImage(num) {
     if (num === undefined) return;
@@ -50,9 +42,7 @@
       imgSRC = "https://i1.wp.com/www.joshuacasper.com/contents/uploads/media-offline-adobe-media-encoder-fixed.jpg?ssl=1";
       return;
     }
-    console.log(filmThisRound);
-    console.log(`${filmThisRound.prefix}/${filmThisRound[num]}`);
-    imgSRC = `${filmThisRound.prefix}/${filmThisRound[num]}`;
+    imgSRC = `${filmThisRound.prefix}${filmThisRound[num]}`;
   }
   setImage(turn - 1);
 
@@ -181,6 +171,7 @@
 <style lang="scss">
   img {
     max-width: 100%;
+    width: max-content;
     max-height: 35vh;
     border-radius: 1rem;
     object-fit: cover;
@@ -293,5 +284,10 @@
         background-color: var(--accent);
       }
     }
+  }
+  #topBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 </style>

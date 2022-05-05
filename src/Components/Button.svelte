@@ -53,6 +53,10 @@
     margin-top: 0.5rem;
   }
 
+  .vert {
+    margin: 0.5rem;
+  }
+
   code {
     text-align: center;
     color: red;

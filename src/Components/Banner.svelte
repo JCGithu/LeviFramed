@@ -12,9 +12,11 @@
 <header>
   <input type="color" bind:value={gameColour} on:change={updateColour} />
   <h2>Re-Framed</h2>
-  {#if roomCode}
-    <span><b>{host ? "Hosting" : "Room"}</b>{roomCode}</span>
-  {/if}
+  <span>
+    {#if roomCode}
+      <b>{host ? "Hosting" : "Room"}</b>{roomCode}
+    {/if}
+  </span>
 
   <svg width="0" height="0">
     <filter id="chroma">
@@ -45,6 +47,17 @@
 <style lang="scss">
   h2 {
     color: white;
+    font-size: clamp(40px, 4vh, 200px);
+    @media (max-width: 580px) {
+      font-size: clamp(20px, 3vh, 40px);
+    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    -webkit-filter: url(#chroma);
+    width: 50vw;
     height: 100%;
   }
   header {
@@ -57,31 +70,28 @@
     height: clamp(50px, 5vh, 200px);
     overflow: hidden;
     display: flex;
-    justify-content: center;
-    h2 {
-      font-size: clamp(40px, 4vh, 200px);
-      margin: 0;
-      padding: 0;
-      -webkit-filter: url(#chroma);
+    justify-content: space-between;
+    align-items: center;
+    @media (max-width: 580px) {
+      height: clamp(30px, 5vh, 50px);
     }
   }
   span {
     color: white;
-    position: absolute;
-    right: 1rem;
     height: 100%;
-    width: 10vw;
+    width: 25vw;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    @media (max-width: 580px) {
+      font-size: 0.8rem;
+    }
   }
   input {
-    position: absolute;
-    left: 1rem;
-    height: clamp(50px, 4vh, 200px);
-    width: clamp(50px, 4vh, 200px);
+    width: 25vw;
+    height: 100%;
     border: none;
     outline: none;
     margin: 0;
@@ -95,18 +105,21 @@
       border: none;
       border-radius: 10px;
       height: 100%;
-      width: 100%;
+
       padding: 0;
       background-color: transparent;
       transition: 0.5s all;
       &:hover {
         opacity: 1;
       }
+      @media (max-width: 580px) {
+        //transform: scale(0.5);
+      }
     }
     &::-webkit-color-swatch-wrapper {
-      border: none;
-      border-radius: 100%;
+      margin: 0;
       padding: 0;
+      clip-path: circle(1.5vh at 5vw);
     }
     opacity: 1;
     cursor: pointer;

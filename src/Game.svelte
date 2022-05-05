@@ -104,5 +104,9 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
+    @media (max-width: 580px) {
+      width: 92vw;
+      padding: 0.5rem;
+    }
   }
 </style>
