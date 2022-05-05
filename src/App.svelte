@@ -5,12 +5,10 @@
   import Error from "./Components/Error.svelte";
 
   import io from "socket.io-client";
-  const socket = io("https://levi-framed.herokuapp.com/");
+  let socket = io("https://levi-framed.herokuapp.com/");
   const urlParams = new URLSearchParams(window.location.search);
-  const dev = urlParams.has("dev");
-  if (dev) {
-    socket = io("ws://localhost:500");
-  }
+  let dev = urlParams.has("dev");
+  if (dev) socket = io("ws://localhost:500");
 
   async function socketCheck() {
     await new Promise((res, rej) => {

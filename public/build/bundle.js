@@ -8985,7 +8985,7 @@ var app = (function () {
     const { Error: Error_1, console: console_1 } = globals;
     const file = "src\\App.svelte";
 
-    // (43:2) {:catch error}
+    // (41:2) {:catch error}
     function create_catch_block(ctx) {
     	let error;
     	let current;
@@ -9022,14 +9022,14 @@ var app = (function () {
     		block,
     		id: create_catch_block.name,
     		type: "catch",
-    		source: "(43:2) {:catch error}",
+    		source: "(41:2) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (41:2) {:then value}
+    // (39:2) {:then value}
     function create_then_block(ctx) {
     	let game;
     	let updating_roomCode;
@@ -9087,14 +9087,14 @@ var app = (function () {
     		block,
     		id: create_then_block.name,
     		type: "then",
-    		source: "(41:2) {:then value}",
+    		source: "(39:2) {:then value}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (39:22)       <p>Waiting!</p>    {:then value}
+    // (37:22)       <p>Waiting!</p>    {:then value}
     function create_pending_block(ctx) {
     	let p;
 
@@ -9102,7 +9102,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Waiting!";
-    			add_location(p, file, 39, 4, 1000);
+    			add_location(p, file, 37, 4, 984);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -9119,7 +9119,7 @@ var app = (function () {
     		block,
     		id: create_pending_block.name,
     		type: "pending",
-    		source: "(39:22)       <p>Waiting!</p>    {:then value}",
+    		source: "(37:22)       <p>Waiting!</p>    {:then value}",
     		ctx
     	});
 
@@ -9162,7 +9162,7 @@ var app = (function () {
     			t = space();
     			info.block.c();
     			attr_dev(main, "class", "svelte-gcdlys");
-    			add_location(main, file, 36, 0, 932);
+    			add_location(main, file, 34, 0, 916);
     		},
     		l: function claim(nodes) {
     			throw new Error_1("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9223,13 +9223,10 @@ var app = (function () {
     function instance($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
-    	const socket = lookup("https://levi-framed.herokuapp.com/");
+    	let socket = lookup("https://levi-framed.herokuapp.com/");
     	const urlParams = new URLSearchParams(window.location.search);
-    	const dev = urlParams.has("dev");
-
-    	if (dev) {
-    		socket = lookup("ws://localhost:500");
-    	}
+    	let dev = urlParams.has("dev");
+    	if (dev) socket = lookup("ws://localhost:500");
 
     	async function socketCheck() {
     		await new Promise((res, rej) => {
@@ -9281,6 +9278,8 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
+    		if ('socket' in $$props) $$invalidate(0, socket = $$props.socket);
+    		if ('dev' in $$props) dev = $$props.dev;
     		if ('socketStart' in $$props) $$invalidate(3, socketStart = $$props.socketStart);
     		if ('host' in $$props) $$invalidate(1, host = $$props.host);
     		if ('roomCode' in $$props) $$invalidate(2, roomCode = $$props.roomCode);
