@@ -5,7 +5,7 @@
   import Error from "./Components/Error.svelte";
 
   import io from "socket.io-client";
-  const socket = io("ws://localhost:500");
+  const socket = io("https://levi-framed.herokuapp.com/");
 
   async function socketCheck() {
     await new Promise((res, rej) => {
