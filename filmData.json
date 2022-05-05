@@ -12,7 +12,7 @@
     "Screenwriter": "Edgar Wright, Krysty Wilson-Cairns",
     "Starring": "Thomasin McKenzie, Anya Taylor-Joy, Matt Smith",
     "IMDB": "https://www.imdb.com/title/tt9639470",
-    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery"
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
   "TAMPOPO":{
     "0": "Tampopo_13.jpg",
@@ -27,7 +27,7 @@
     "Screenwriter": "Jûzô Itami",
     "Starring": "Ken Watanabe, Nobuko Miyamoto",
     "IMDB": "https://www.imdb.com/title/tt0078748",
-    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery"
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
   "ALIEN": {
     "0": "image039%20(1).jpg",
@@ -42,7 +42,7 @@
     "Screenwriter": "Dan O'Bannon, Ronald Shusett",
     "Starring": "Sigourney Weaver, Tom Skerritt, John Hurt",
     "IMDB": "https://www.imdb.com/title/tt0092048",
-    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery"
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
   "ME AND EARL AND THE DYING GIRL":{
     "0": "Me_and_Earl_035.jpg",
@@ -57,7 +57,7 @@
     "Screenwriter": "Jesse Andrews",
     "Starring": "Thomas Mann, RJ Cyler, Olivia Cooke",
     "IMDB": "https://www.imdb.com/title/tt2582496/",
-    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery"
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
   "IT":{
     "0": "it026.jpg",
@@ -72,7 +72,7 @@
     "Screenwriter": "Chase Palmer, Cary Joji Fukunaga, Gary Dauberman",
     "Starring": "Bill Skarsgård, Jaeden Martell, Sophia Lillis",
     "IMDB": "https://www.imdb.com/title/tt1396484/",
-    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery"
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
   "THE LOST WORLD: JURASSIC PARK": {
     "0": "Jurassic_Park_The_Lost_World_002.jpg",
@@ -87,7 +87,7 @@
     "Screenwriter": "David Koepp, Micheal Crichton",
     "Starring": "Jeff Goldblum, Julianne Moore, Pete Postlethwaite",
     "IMDB": "https://www.imdb.com/title/tt0119567",
-    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery"
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
   "TWISTER": {
     "0": "Twister_017.jpg",
@@ -102,7 +102,7 @@
     "Screenwriter": "Anne-Marie Martin, Micheal Crichton",
     "Starring": "Helen Hunt, Bill Paxton, Cary Elwes",
     "IMDB": "https://www.imdb.com/title/tt0117998",
-    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery"
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
   "THE PRESTIGE": {
     "0": "06%20(1139).jpg",
@@ -117,7 +117,7 @@
     "Screenwriter": "Jonathan Nolan, Christopher Nolan",
     "Starring": "Christian Bale, Hugh Jackman, Scarlett Johansson",
     "IMDB": "https://www.imdb.com/title/tt0482571",
-    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery"
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
   "DAZED AND CONFUSED": {
     "0": "vlcsnap-2014-07-14-11h23m09s215.png",
@@ -132,7 +132,51 @@
     "Screenwriter": "Richard Linklater",
     "Starring": "Jason London, Wiley Wiggins, Matthew McConaughey",
     "IMDB": "https://www.imdb.com/title/tt0106677/",
-    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery"
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
+  },
+  "I, ROBOT": {
+    "0": "iRobot_007.jpg",
+    "1": "iRobot_002.jpg",
+    "2": "iRobot_012.jpg",
+    "3": "iRobot_039.jpg",
+    "4": "iRobot_022.jpg",
+    "Title": "I, Robot",
+    "Year": "2004",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNmE1OWI2ZGItMDUyOS00MmU5LWE0MzUtYTQ0YzA1YTE5MGYxXkEyXkFqcGdeQXVyMDM5ODIyNw@@._V1_.jpg",
+    "Director": "Alex Proyas",
+    "Screenwriter": "Jeff Vintar, Akiva Goldsman",
+    "Starring": "Will Smith, Bridget Moynahan, Alan Tudyk",
+    "IMDB": "https://www.imdb.com/title/tt0343818/",
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
+  },
+  "BATTLE ROYALE": {
+    "0": "Battle_Royale_006.jpg",
+    "1": "Battle_Royale_016.jpg",
+    "2": "Battle_Royale_032.jpg",
+    "3": "Battle_Royale_034.jpg",
+    "4": "Battle_Royale_009.jpg",
+    "Title": "Battle Royale",
+    "Year": "2000",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMDc2MGYwYzAtNzE2Yi00YmU3LTkxMDUtODk2YjhiNDM5NDIyXkEyXkFqcGdeQXVyMTEwNDU1MzEy._V1_.jpg",
+    "Director": "Kinji Fukasaku",
+    "Screenwriter": "Kenta Fukasaku, Koushun Takami",
+    "Starring": "Tatsuya Fujiware, Aki Maeda, Takeshi Kitano",
+    "IMDB": "https://www.imdb.com/title/tt0266308/",
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
+  },
+  "THE LORD OF THE RINGS: THE FELLOWSHIP OF THE RING":{
+    "0": "2516.jpg",
+    "1": "8894.jpg",
+    "2": "1189.jpg",
+    "3": "7172.jpg",
+    "4": "12394.jpg",
+    "Title": "The Lord of the Rings: The Fellowship of the Ring",
+    "Year": "2001",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg",
+    "Director": "Peter Jackson",
+    "Screenwriter": "Fran Walsh, Philippa Boyens, Peter Jackson",
+    "Starring": "Elijah Wood, Ian McKellen, Viggo Mortensen",
+    "IMDB": "https://www.imdb.com/title/tt0120737/",
+    "prefix": "https://i2.wp.com/caps.pictures/200/1-lotr-fellowship/full/lotr1-movie-screencaps.com-"
   }
-
 }
