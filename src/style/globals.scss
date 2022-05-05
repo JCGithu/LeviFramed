@@ -1,0 +1,23 @@
+@mixin fadeInAnimation {
+  animation: FadeIn 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+:root{
+  --accent2: rgb(139, 72, 178);
+  --accent: rgb(54, 214, 134);
+}
+
+.fadeIn {
+  @include fadeInAnimation();
+}
+
+@keyframes FadeIn {
+  0% {
+    opacity: 0%;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 100%;
+    transform: translateY(0);
+  }
+}
