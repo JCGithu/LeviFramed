@@ -45,6 +45,7 @@
 <style lang="scss">
   h2 {
     color: white;
+    height: 100%;
   }
   header {
     position: relative;
@@ -53,11 +54,12 @@
     width: 100vw;
     min-height: 50px;
     height: 5%;
+    height: clamp(50px, 5vh, 200px);
     overflow: hidden;
     display: flex;
     justify-content: center;
     h2 {
-      font-size: 2rem;
+      font-size: clamp(40px, 4vh, 200px);
       margin: 0;
       padding: 0;
       -webkit-filter: url(#chroma);
@@ -78,20 +80,28 @@
   input {
     position: absolute;
     left: 1rem;
-    height: 100%;
+    height: clamp(50px, 4vh, 200px);
+    width: clamp(50px, 4vh, 200px);
     border: none;
     outline: none;
     margin: 0;
-    padding: 1rem;
+    padding: 0.5vh;
     border-color: transparent;
     background-color: transparent;
     appearance: none;
-    border-radius: 100%;
+    border-radius: 20px;
     &::-webkit-color-swatch {
+      opacity: 0.3;
       border: none;
-      border-radius: 100%;
+      border-radius: 10px;
+      height: 100%;
+      width: 100%;
       padding: 0;
       background-color: transparent;
+      transition: 0.5s all;
+      &:hover {
+        opacity: 1;
+      }
     }
     &::-webkit-color-swatch-wrapper {
       border: none;

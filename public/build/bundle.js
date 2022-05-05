@@ -922,7 +922,7 @@ var app = (function () {
     			t0 = text(t0_value);
     			t1 = text(/*roomCode*/ ctx[1]);
     			add_location(b, file$b, 15, 10, 381);
-    			attr_dev(span, "class", "svelte-bl26ov");
+    			attr_dev(span, "class", "svelte-1orrab9");
     			add_location(span, file$b, 15, 4, 375);
     		},
     		m: function mount(target, anchor) {
@@ -987,9 +987,9 @@ var app = (function () {
     			feOffset1 = svg_element("feOffset");
     			feBlend = svg_element("feBlend");
     			attr_dev(input, "type", "color");
-    			attr_dev(input, "class", "svelte-bl26ov");
+    			attr_dev(input, "class", "svelte-1orrab9");
     			add_location(input, file$b, 12, 2, 258);
-    			attr_dev(h2, "class", "svelte-bl26ov");
+    			attr_dev(h2, "class", "svelte-1orrab9");
     			add_location(h2, file$b, 13, 2, 333);
     			attr_dev(feColorMatrix0, "type", "matrix");
     			attr_dev(feColorMatrix0, "result", "red_");
@@ -1019,7 +1019,7 @@ var app = (function () {
     			attr_dev(svg, "width", "0");
     			attr_dev(svg, "height", "0");
     			add_location(svg, file$b, 18, 2, 447);
-    			attr_dev(header, "class", "svelte-bl26ov");
+    			attr_dev(header, "class", "svelte-1orrab9");
     			add_location(header, file$b, 11, 0, 246);
     		},
     		l: function claim(nodes) {
