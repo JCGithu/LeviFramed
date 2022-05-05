@@ -11,7 +11,7 @@
 
 <header>
   <input type="color" bind:value={gameColour} on:change={updateColour} />
-  <h2>Levi Framed</h2>
+  <h2>Re-Framed</h2>
   {#if roomCode}
     <span><b>{host ? "Hosting" : "Room"}</b>{roomCode}</span>
   {/if}
