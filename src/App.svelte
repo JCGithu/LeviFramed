@@ -5,7 +5,7 @@
   import Error from "./Components/Error.svelte";
 
   import io from "socket.io-client";
-  let socket = io("https://levi-framed.herokuapp.com/");
+  let socket = io("https://reframed.herokuapp.com/");
   const urlParams = new URLSearchParams(window.location.search);
   let dev = urlParams.has("dev");
   if (dev) socket = io("ws://localhost:500");

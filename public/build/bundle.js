@@ -9102,7 +9102,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Waiting!";
-    			add_location(p, file, 37, 4, 984);
+    			add_location(p, file, 37, 4, 981);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -9162,7 +9162,7 @@ var app = (function () {
     			t = space();
     			info.block.c();
     			attr_dev(main, "class", "svelte-gcdlys");
-    			add_location(main, file, 34, 0, 916);
+    			add_location(main, file, 34, 0, 913);
     		},
     		l: function claim(nodes) {
     			throw new Error_1("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -9223,7 +9223,7 @@ var app = (function () {
     function instance($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('App', slots, []);
-    	let socket = lookup("https://levi-framed.herokuapp.com/");
+    	let socket = lookup("https://reframed.herokuapp.com/");
     	const urlParams = new URLSearchParams(window.location.search);
     	let dev = urlParams.has("dev");
     	if (dev) socket = lookup("ws://localhost:500");
