@@ -36,6 +36,13 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;
+    @media (max-width: 580px) {
+      font-size: clamp(20px, 3vh, 40px);
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      font-size: 0.8rem;
+      padding: 1rem;
+    }
     height: auto;
     padding: 2rem;
     div {
