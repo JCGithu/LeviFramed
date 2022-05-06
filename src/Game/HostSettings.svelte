@@ -38,7 +38,7 @@
 
 <svelte:window on:keydown={handleKeydown} />
 
-<div>
+<div class="customScroll">
   <h1>Settings</h1>
   <div class="inputGroup">
     <h3>Number of Rounds</h3>

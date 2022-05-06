@@ -2,9 +2,38 @@
   animation: FadeIn 2s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+@mixin scrollbar {
+  &::-webkit-scrollbar-track {
+    background-clip: padding-box;
+    border-radius: 100px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding-right: 0.5rem;
+    margin: 1rem;
+    width: 10px;
+    border: 8px solid rgba(0, 0, 0, 0);
+  }
+  
+  &::-webkit-scrollbar {
+    width: 25px;
+    background-color: rgba(0,0,0,0);
+    margin-right: 1rem;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    border: 8px solid rgba(0, 0, 0, 0);
+    background-color: var(--accent);
+    background-clip: padding-box;
+  }  
+}
+
 :root{
   --accent2: rgb(139, 72, 178);
   --accent: rgb(54, 214, 134);
+}
+
+.customScroll {
+  @include scrollbar();
 }
 
 .fadeIn {

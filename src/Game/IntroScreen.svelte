@@ -127,7 +127,7 @@
   };
 </script>
 
-<div>
+<div class="customScroll">
   <header>
     <h2>Hi!</h2>
     This is like
@@ -227,9 +227,13 @@
     display: flex;
     justify-content: center;
     color: #ffffff10;
+    pointer-events: none;
     bottom: 0;
     left: 0;
     @media (max-width: 580px) {
+      font-size: 0.5rem;
+    }
+    @media (max-height: 850px) {
       font-size: 0.5rem;
     }
   }

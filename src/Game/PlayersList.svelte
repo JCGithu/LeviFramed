@@ -5,7 +5,7 @@
 
 <section in:fly={{ y: 110 }}>
   <h4>Players in Lobby</h4>
-  <div>
+  <div class="customScroll">
     {#each players as player}
       <span in:fly={{ y: 20 }} class="player">{player}</span>
     {/each}
@@ -23,6 +23,7 @@
     justify-content: center;
     margin-bottom: 1rem;
     text-align: center;
+    overflow-y: auto;
   }
   section {
     overflow: hidden;
@@ -30,7 +31,6 @@
     position: fixed;
     width: min(80%, 520px) !important;
     max-height: 50%;
-    overflow-y: auto;
     width: 100%;
     border-radius: 2rem 2rem 0 0;
     padding-top: 1rem;

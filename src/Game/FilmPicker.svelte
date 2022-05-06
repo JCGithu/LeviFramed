@@ -111,6 +111,7 @@
     autoselect = [];
     guessTarget.outcome = "wrong";
     guesses = guesses;
+    noGuess = true;
     if (guesses[4]) {
       if (guesses[4].outcome === "wrong") {
         roundOutcome.won = false;
@@ -127,7 +128,7 @@
   }
 </script>
 
-<div>
+<div class="customScroll" id="picker">
   <div id="topBox">
     <img src={imgSRC} alt={filmThisRound.id} />
     <div class="numList">
@@ -337,5 +338,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  #picker {
+    height: 100%;
   }
 </style>

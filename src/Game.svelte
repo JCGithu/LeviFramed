@@ -74,7 +74,7 @@
   }
 </script>
 
-<game>
+<game class="customScroll">
   {#if gameRunning}
     {#if leaderboardOn}
       <Leaderboard {socket} {leaderboardData} {hosting} {roomData} />

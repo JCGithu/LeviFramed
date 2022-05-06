@@ -28,7 +28,7 @@
   {#if gameOver}
     <h3>Congrats {leaderboardData[0].username}!</h3>
   {/if}
-  <div>
+  <div class="customScroll">
     {#each leaderboardData as dataPoint, i}
       <span in:fly><b>{dataPoint.username}</b>: {dataPoint.points} points</span>
     {/each}
@@ -45,9 +45,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    max-height: 70%;
-    overflow-y: auto;
     width: 100%;
+    div {
+      max-height: 70%;
+      overflow-y: auto;
+    }
   }
   span {
     margin: 0.2rem;
@@ -56,10 +58,6 @@
     text-align: center;
     border-radius: 0.5rem;
     border: 2px solid rgba(red, 0);
-    @for $i from 1 through 10 {
-      &:nth-child(#{$i}) {
-        border-color: rgba(54, 214, 134, 1 - ($i / 10));
-      }
-    }
+    border-color: var(--accent);
   }
 </style>
