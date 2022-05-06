@@ -90,6 +90,7 @@
       guesses[turn - 1] = { text: "", outcome: "blank" };
     }
     let guessTarget = guesses[turn - 1];
+    currentGuess = currentGuess.toUpperCase();
     guessTarget.text = currentGuess;
     roundOutcome = {
       turns: turn,
