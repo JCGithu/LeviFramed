@@ -11,6 +11,7 @@
   import filmData from "../filmData.json";
 
   let filmNames = Object.keys(filmData);
+  console.log(`There are ${filmNames.length} films!`);
   let gameBooted = false;
   let gameRunning = false;
   let leaderboardOn = false;
@@ -26,11 +27,23 @@
   }
 
   function generateFilms(rounds) {
+    let storage = window.localStorage;
+    let previous = [];
+
+    if (storage.getItem("previous")) {
+      previous = JSON.parse(storage.getItem("previous"));
+      if (previous.length + rounds > filmNames.length) previous = [];
+    }
+
     let filmsChosen = [];
     while (filmsChosen.length != rounds) {
       let filmNum = getRandomInt(filmNames.length);
-      if (!filmsChosen.includes(filmNum)) filmsChosen.push(filmNum);
+      if (!filmsChosen.includes(filmNum) && !previous.includes(filmNum)) {
+        filmsChosen.push(filmNum);
+        previous.push(filmNum);
+      }
     }
+    storage.setItem("previous", JSON.stringify(previous));
     return filmsChosen;
   }
 
