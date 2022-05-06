@@ -45,6 +45,15 @@
     height: 3rem;
   }
 
+  .dual {
+    margin: 0.5rem;
+    width: calc(50% - 1rem);
+    border-width: 2px;
+    background-color: transparent;
+    border-color: var(--accent);
+    border-style: solid;
+  }
+
   .inline {
     margin-right: 1rem;
   }
