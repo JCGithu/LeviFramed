@@ -24,6 +24,9 @@
   for (let i = 0; i < 5; i++) {
     guesses.push({ text: "", outcome: "blank" });
   }
+  if (window.innerHeight < 850 || window.innerWidth < 580) {
+    guesses = [];
+  }
   let autoselect = [];
   console.log(roomData);
 
@@ -63,8 +66,6 @@
       autoselect.splice(j, 1);
       autoselect = autoselect;
     }
-    console.log(autoselect);
-    //let newArray = [];
     for (let i = 0; i < filmNames.length; i++) {
       if (autoselect.includes(filmNames[i])) continue;
       if (filmNames[i].includes(barInput)) {
@@ -72,12 +73,9 @@
         if (autoselect.length >= 6) break;
       }
     }
-    //autoselect = newArray;
   };
 
   function updateImg(i) {
-    console.log(`clicked: ${i}`);
-    console.log("WOW");
     currentImg = i + 1;
     setImage(i);
   }
@@ -88,6 +86,9 @@
   }
 
   function addGuess() {
+    if (!guesses[turn - 1]) {
+      guesses[turn - 1] = { text: "", outcome: "blank" };
+    }
     let guessTarget = guesses[turn - 1];
     guessTarget.text = currentGuess;
     roundOutcome = {
@@ -107,13 +108,15 @@
       return;
     }
     currentGuess = "";
+    autoselect = [];
     guessTarget.outcome = "wrong";
     guesses = guesses;
-    if (guesses[4].outcome === "wrong") {
-      console.log("LOSE!");
-      roundOutcome.won = false;
-      roundOver = true;
-      return;
+    if (guesses[4]) {
+      if (guesses[4].outcome === "wrong") {
+        roundOutcome.won = false;
+        roundOver = true;
+        return;
+      }
     }
     updateImg(turn);
     turn = turn + 1;
@@ -143,7 +146,7 @@
   {#if !roundOver}
     <ul id="guessGrid">
       {#each guesses as guess}
-        <li class={guess.outcome}>{guess.text}</li>
+        <li in:slide={{ duration: 200 }} class={guess.outcome}>{guess.text}</li>
       {/each}
     </ul>
     <div id="inputBox" hidden={showSearch}>
@@ -151,7 +154,8 @@
       <ul id="autoselect">
         {#each autoselect as auto, i}
           <li
-            transition:slide={{ duration: 200 }}
+            in:slide={{ duration: 200 }}
+            out:slide={{ duration: 100 }}
             name={auto}
             on:click={() => {
               setGuess(auto);
@@ -198,16 +202,40 @@
       align-items: center;
       justify-content: center;
       height: 3rem;
-      @media (max-width: 580px) {
-        font-size: 0.8rem;
-        height: 2rem;
-      }
       box-shadow: inset 0px 0px 0px 1px rgb(255, 255, 255), 2px 2px 8px rgba(0, 0, 0, 0.1);
       &.correct {
         background-color: rgba(54, 214, 134, 0.2);
       }
       &.wrong {
         background-color: rgba(255, 0, 0, 0.25);
+      }
+    }
+    @media (max-width: 580px) {
+      li {
+        font-size: 0.8rem;
+        height: 1.7rem;
+      }
+    }
+    @media (max-height: 850px) {
+      li {
+        border-radius: 0rem;
+        margin: 0;
+        font-size: 0.8rem;
+        height: max-content;
+        //min-height: 1rem;
+        //padding: 0.2rem;
+      }
+      :last-child {
+        border-radius: 0 0 0.5rem 0.5rem;
+        margin-bottom: 0.25rem;
+      }
+      :first-child {
+        border-radius: 0.5rem 0.5rem 0 0;
+        margin-top: 0.25rem;
+      }
+      :only-child {
+        border-radius: 0.5rem;
+        margin: 0.25rem 0;
       }
     }
   }
@@ -239,6 +267,14 @@
       box-shadow: inset 0px 0px 0px transparent;
       //box-shadow: inset 0px -204px 0px -200px var(--accent);
     }
+    @media (max-width: 580px) {
+      font-size: 0.8rem;
+      height: 1.7rem;
+    }
+    @media (max-height: 850px) {
+      font-size: 0.8rem;
+      height: 1.7rem;
+    }
   }
   #inputBox {
     width: 100%;
@@ -254,10 +290,18 @@
     li {
       font-weight: bold;
       list-style-type: none;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.8);
       border: 1px white solid;
       cursor: pointer;
       padding: 0.2rem;
+    }
+    @media (max-width: 580px) {
+      font-size: 0.8rem;
+      bottom: 1.9rem;
+    }
+    @media (max-height: 850px) {
+      font-size: 0.8rem;
+      bottom: 1.9rem;
     }
   }
   .numList {

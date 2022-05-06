@@ -37,12 +37,15 @@
     grid-template-rows: repeat(2, 1fr);
     gap: 0px 0px;
     @media (max-width: 580px) {
-      font-size: clamp(20px, 3vh, 40px);
+      font-size: 0.8rem;
+      padding: 1rem;
+    }
+    @media (max-height: 850px) {
       font-size: 0.8rem;
       padding: 1rem;
     }
     height: auto;
-    padding: 2rem;
+    padding: 1rem 1.5rem;
     div {
       display: flex;
       flex-direction: column;
@@ -76,6 +79,10 @@
     @media (max-width: 580px) {
       max-height: 25vh;
     }
+    @media (max-height: 850px) {
+      max-height: 35vh;
+    }
+    max-height: 40vh;
     object-fit: cover;
     position: relative;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
