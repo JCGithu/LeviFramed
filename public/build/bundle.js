@@ -1185,7 +1185,7 @@ var app = (function () {
     		c: function create() {
     			code = element("code");
     			t = text(/*error*/ ctx[2]);
-    			attr_dev(code, "class", "svelte-j2r1em");
+    			attr_dev(code, "class", "svelte-1g0oxvn");
     			add_location(code, file$a, 11, 2, 221);
     		},
     		m: function mount(target, anchor) {
@@ -1231,7 +1231,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			if_block_anchor = empty$1();
     			button.disabled = /*disabled*/ ctx[1];
-    			attr_dev(button, "class", button_class_value = "" + (null_to_empty(/*style*/ ctx[0]) + " svelte-j2r1em"));
+    			attr_dev(button, "class", button_class_value = "" + (null_to_empty(/*style*/ ctx[0]) + " svelte-1g0oxvn"));
     			add_location(button, file$a, 7, 0, 132);
     		},
     		l: function claim(nodes) {
@@ -1286,7 +1286,7 @@ var app = (function () {
     				prop_dev(button, "disabled", /*disabled*/ ctx[1]);
     			}
 
-    			if (!current || dirty & /*style*/ 1 && button_class_value !== (button_class_value = "" + (null_to_empty(/*style*/ ctx[0]) + " svelte-j2r1em"))) {
+    			if (!current || dirty & /*style*/ 1 && button_class_value !== (button_class_value = "" + (null_to_empty(/*style*/ ctx[0]) + " svelte-1g0oxvn"))) {
     				attr_dev(button, "class", button_class_value);
     			}
 
@@ -1529,8 +1529,8 @@ var app = (function () {
     const { Error: Error_1$1, console: console_1$4 } = globals;
     const file$8 = "src\\Game\\IntroScreen.svelte";
 
-    // (144:4) <Button disabled={usernameButtonOff} style={vert ? "vert" : "inline"} func={setUsername}>
-    function create_default_slot_2(ctx) {
+    // (146:4) <Button disabled={usernameButtonOff} style={vert ? "vert" : "inline"} func={setUsername}>
+    function create_default_slot_3(ctx) {
     	let t;
 
     	const block = {
@@ -1550,44 +1550,111 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_2.name,
+    		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(144:4) <Button disabled={usernameButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={setUsername}>",
+    		source: "(146:4) <Button disabled={usernameButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={setUsername}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (146:2) {#if usernameSet}
+    // (148:2) {#if usernameSet}
     function create_if_block_1$2(ctx) {
+    	let current_block_type_index;
+    	let if_block;
+    	let if_block_anchor;
+    	let current;
+    	const if_block_creators = [create_if_block_2$1, create_else_block$2];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (!/*nowJoin*/ ctx[11]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+
+    	const block = {
+    		c: function create() {
+    			if_block.c();
+    			if_block_anchor = empty$1();
+    		},
+    		m: function mount(target, anchor) {
+    			if_blocks[current_block_type_index].m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block = if_blocks[current_block_type_index];
+
+    				if (!if_block) {
+    					if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block.c();
+    				} else {
+    					if_block.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block, 1);
+    				if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if_blocks[current_block_type_index].d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$2.name,
+    		type: "if",
+    		source: "(148:2) {#if usernameSet}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (159:4) {:else}
+    function create_else_block$2(ctx) {
     	let div;
     	let input;
-    	let t0;
-    	let button0;
-    	let t1;
-    	let button1;
+    	let t;
+    	let button;
     	let current;
     	let mounted;
     	let dispose;
 
-    	button0 = new Button({
+    	button = new Button({
     			props: {
     				disabled: /*joinButtonOff*/ ctx[7],
     				style: /*vert*/ ctx[0] ? "vert" : "inline",
-    				func: /*joinRoom*/ ctx[13],
-    				$$slots: { default: [create_default_slot_1] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
-
-    	button1 = new Button({
-    			props: {
-    				style: "fadeIn wide",
-    				disabled: /*hostButtonOff*/ ctx[11],
-    				func: /*hostGame*/ ctx[15],
-    				$$slots: { default: [create_default_slot$4] },
+    				func: /*joinRoom*/ ctx[14],
+    				$$slots: { default: [create_default_slot_2] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -1597,31 +1664,27 @@ var app = (function () {
     		c: function create() {
     			div = element("div");
     			input = element("input");
-    			t0 = space();
-    			create_component(button0.$$.fragment);
-    			t1 = space();
-    			create_component(button1.$$.fragment);
+    			t = space();
+    			create_component(button.$$.fragment);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", /*joinPlaceholder*/ ctx[10]);
-    			attr_dev(input, "class", "svelte-1i65pvc");
-    			add_location(input, file$8, 147, 6, 4202);
-    			attr_dev(div, "class", "fadeIn inputGroup svelte-1i65pvc");
-    			add_location(div, file$8, 146, 4, 4163);
+    			attr_dev(input, "class", "svelte-15ry2au");
+    			add_location(input, file$8, 160, 8, 4612);
+    			attr_dev(div, "class", "fadeIn inputGroup svelte-15ry2au");
+    			add_location(div, file$8, 159, 6, 4571);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
     			append_dev(div, input);
     			set_input_value(input, /*joinCode*/ ctx[6]);
-    			append_dev(div, t0);
-    			mount_component(button0, div, null);
-    			insert_dev(target, t1, anchor);
-    			mount_component(button1, target, anchor);
+    			append_dev(div, t);
+    			mount_component(button, div, null);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input, "input", /*input_input_handler_1*/ ctx[18]),
-    					listen_dev(input, "input", /*handleInput*/ ctx[12], false, false, false)
+    					listen_dev(input, "input", /*input_input_handler_1*/ ctx[20]),
+    					listen_dev(input, "input", /*handleInput*/ ctx[13], false, false, false)
     				];
 
     				mounted = true;
@@ -1636,19 +1699,102 @@ var app = (function () {
     				set_input_value(input, /*joinCode*/ ctx[6]);
     			}
 
-    			const button0_changes = {};
-    			if (dirty & /*joinButtonOff*/ 128) button0_changes.disabled = /*joinButtonOff*/ ctx[7];
-    			if (dirty & /*vert*/ 1) button0_changes.style = /*vert*/ ctx[0] ? "vert" : "inline";
+    			const button_changes = {};
+    			if (dirty & /*joinButtonOff*/ 128) button_changes.disabled = /*joinButtonOff*/ ctx[7];
+    			if (dirty & /*vert*/ 1) button_changes.style = /*vert*/ ctx[0] ? "vert" : "inline";
 
-    			if (dirty & /*$$scope, joinText*/ 8389120) {
+    			if (dirty & /*$$scope, joinText*/ 33554944) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block$2.name,
+    		type: "else",
+    		source: "(159:4) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (149:4) {#if !nowJoin}
+    function create_if_block_2$1(ctx) {
+    	let div;
+    	let button0;
+    	let t;
+    	let button1;
+    	let current;
+
+    	button0 = new Button({
+    			props: {
+    				style: "wide dual",
+    				func: /*func*/ ctx[19],
+    				$$slots: { default: [create_default_slot_1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button1 = new Button({
+    			props: {
+    				style: "wide dual",
+    				func: /*hostGame*/ ctx[16],
+    				disabled: /*hostButtonOff*/ ctx[12],
+    				$$slots: { default: [create_default_slot$4] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			create_component(button0.$$.fragment);
+    			t = space();
+    			create_component(button1.$$.fragment);
+    			attr_dev(div, "class", "choose fadeIn svelte-15ry2au");
+    			add_location(div, file$8, 149, 6, 4270);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			mount_component(button0, div, null);
+    			append_dev(div, t);
+    			mount_component(button1, div, null);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const button0_changes = {};
+    			if (dirty & /*nowJoin*/ 2048) button0_changes.func = /*func*/ ctx[19];
+
+    			if (dirty & /*$$scope*/ 33554432) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
-    			if (dirty & /*hostButtonOff*/ 2048) button1_changes.disabled = /*hostButtonOff*/ ctx[11];
+    			if (dirty & /*hostButtonOff*/ 4096) button1_changes.disabled = /*hostButtonOff*/ ctx[12];
 
-    			if (dirty & /*$$scope*/ 8388608) {
+    			if (dirty & /*$$scope*/ 33554432) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -1668,26 +1814,23 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div);
     			destroy_component(button0);
-    			if (detaching) detach_dev(t1);
-    			destroy_component(button1, detaching);
-    			mounted = false;
-    			run_all(dispose);
+    			destroy_component(button1);
     		}
     	};
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_if_block_1$2.name,
+    		id: create_if_block_2$1.name,
     		type: "if",
-    		source: "(146:2) {#if usernameSet}",
+    		source: "(149:4) {#if !nowJoin}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (149:6) <Button disabled={joinButtonOff} style={vert ? "vert" : "inline"} func={joinRoom}>
-    function create_default_slot_1(ctx) {
+    // (162:8) <Button disabled={joinButtonOff} style={vert ? "vert" : "inline"} func={joinRoom}>
+    function create_default_slot_2(ctx) {
     	let t;
 
     	const block = {
@@ -1707,22 +1850,49 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
-    		id: create_default_slot_1.name,
+    		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(149:6) <Button disabled={joinButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={joinRoom}>",
+    		source: "(162:8) <Button disabled={joinButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={joinRoom}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (151:4) <Button style="fadeIn wide" disabled={hostButtonOff} func={hostGame}>
+    // (151:8) <Button            style="wide dual"            func={() => {              nowJoin = true;            }}>
+    function create_default_slot_1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Joining?");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1.name,
+    		type: "slot",
+    		source: "(151:8) <Button            style=\\\"wide dual\\\"            func={() => {              nowJoin = true;            }}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (157:8) <Button style="wide dual" func={hostGame} disabled={hostButtonOff}>
     function create_default_slot$4(ctx) {
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text("Host a game!");
+    			t = text("or Hosting?");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
@@ -1736,14 +1906,14 @@ var app = (function () {
     		block,
     		id: create_default_slot$4.name,
     		type: "slot",
-    		source: "(151:4) <Button style=\\\"fadeIn wide\\\" disabled={hostButtonOff} func={hostGame}>",
+    		source: "(157:8) <Button style=\\\"wide dual\\\" func={hostGame} disabled={hostButtonOff}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (153:2) {#if joinError}
+    // (167:2) {#if joinError}
     function create_if_block$4(ctx) {
     	let error;
     	let current;
@@ -1784,7 +1954,7 @@ var app = (function () {
     		block,
     		id: create_if_block$4.name,
     		type: "if",
-    		source: "(153:2) {#if joinError}",
+    		source: "(167:2) {#if joinError}",
     		ctx
     	});
 
@@ -1793,7 +1963,7 @@ var app = (function () {
 
     function create_fragment$8(ctx) {
     	let div1;
-    	let header;
+    	let section;
     	let h2;
     	let t1;
     	let a;
@@ -1806,18 +1976,15 @@ var app = (function () {
     	let t6;
     	let h3;
     	let t8;
-    	let br3;
-    	let t9;
-    	let br4;
+    	let span;
     	let t10;
-    	let t11;
     	let div0;
     	let input;
-    	let t12;
+    	let t11;
     	let button;
+    	let t12;
     	let t13;
     	let t14;
-    	let t15;
     	let footer;
     	let current;
     	let mounted;
@@ -1827,8 +1994,8 @@ var app = (function () {
     			props: {
     				disabled: /*usernameButtonOff*/ ctx[4],
     				style: /*vert*/ ctx[0] ? "vert" : "inline",
-    				func: /*setUsername*/ ctx[14],
-    				$$slots: { default: [create_default_slot_2] },
+    				func: /*setUsername*/ ctx[15],
+    				$$slots: { default: [create_default_slot_3] },
     				$$scope: { ctx }
     			},
     			$$inline: true
@@ -1840,7 +2007,7 @@ var app = (function () {
     	const block = {
     		c: function create() {
     			div1 = element("div");
-    			header = element("header");
+    			section = element("section");
     			h2 = element("h2");
     			h2.textContent = "Hi!";
     			t1 = text("\r\n    This is like\r\n    ");
@@ -1855,88 +2022,84 @@ var app = (function () {
     			t6 = space();
     			h3 = element("h3");
     			h3.textContent = "How to Play:";
-    			t8 = text("\r\n    Each turn you will be shown a single image from a film.");
-    			br3 = element("br");
-    			t9 = text("Guess what you think it is! ");
-    			br4 = element("br");
-    			t10 = text(" Points are earned based on how few turns you take to guess the film.");
-    			t11 = space();
+    			t8 = space();
+    			span = element("span");
+    			span.textContent = "Each turn you will be shown a single image from a film. Guess what you think it is! Points are earned based on how few turns you take to guess the film.";
+    			t10 = space();
     			div0 = element("div");
     			input = element("input");
-    			t12 = space();
+    			t11 = space();
     			create_component(button.$$.fragment);
-    			t13 = space();
+    			t12 = space();
     			if (if_block0) if_block0.c();
-    			t14 = space();
+    			t13 = space();
     			if (if_block1) if_block1.c();
-    			t15 = space();
+    			t14 = space();
     			footer = element("footer");
     			footer.textContent = "In chat no one can hear you scream...";
-    			attr_dev(h2, "class", "svelte-1i65pvc");
-    			add_location(h2, file$8, 131, 4, 3494);
+    			attr_dev(h2, "class", "svelte-15ry2au");
+    			add_location(h2, file$8, 133, 4, 3577);
     			attr_dev(a, "href", "http://framed.wtf");
-    			attr_dev(a, "class", "svelte-1i65pvc");
-    			add_location(a, file$8, 133, 4, 3530);
-    			add_location(br0, file$8, 134, 4, 3594);
-    			add_location(br1, file$8, 136, 4, 3641);
-    			add_location(br2, file$8, 137, 4, 3653);
-    			attr_dev(h3, "class", "svelte-1i65pvc");
-    			add_location(h3, file$8, 138, 4, 3665);
-    			add_location(br3, file$8, 139, 59, 3747);
-    			add_location(br4, file$8, 139, 93, 3781);
-    			attr_dev(header, "class", "svelte-1i65pvc");
-    			add_location(header, file$8, 130, 2, 3480);
+    			attr_dev(a, "class", "svelte-15ry2au");
+    			add_location(a, file$8, 135, 4, 3613);
+    			add_location(br0, file$8, 136, 4, 3677);
+    			add_location(br1, file$8, 138, 4, 3724);
+    			add_location(br2, file$8, 139, 4, 3736);
+    			attr_dev(h3, "class", "svelte-15ry2au");
+    			add_location(h3, file$8, 140, 4, 3748);
+    			attr_dev(span, "class", "svelte-15ry2au");
+    			add_location(span, file$8, 141, 4, 3775);
+    			attr_dev(section, "class", "svelte-15ry2au");
+    			add_location(section, file$8, 132, 2, 3562);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", /*userPlaceholder*/ ctx[5]);
-    			attr_dev(input, "class", "svelte-1i65pvc");
-    			add_location(input, file$8, 142, 4, 3910);
-    			attr_dev(div0, "class", "fadeIn inputGroup svelte-1i65pvc");
-    			add_location(div0, file$8, 141, 2, 3873);
-    			attr_dev(footer, "class", "svelte-1i65pvc");
-    			add_location(footer, file$8, 155, 2, 4587);
-    			attr_dev(div1, "class", "customScroll svelte-1i65pvc");
-    			add_location(div1, file$8, 129, 0, 3450);
+    			attr_dev(input, "class", "svelte-15ry2au");
+    			add_location(input, file$8, 144, 4, 3995);
+    			attr_dev(div0, "class", "fadeIn inputGroup svelte-15ry2au");
+    			add_location(div0, file$8, 143, 2, 3958);
+    			attr_dev(footer, "class", "svelte-15ry2au");
+    			add_location(footer, file$8, 169, 2, 5005);
+    			attr_dev(div1, "id", "intro");
+    			attr_dev(div1, "class", "customScroll svelte-15ry2au");
+    			add_location(div1, file$8, 131, 0, 3521);
     		},
     		l: function claim(nodes) {
     			throw new Error_1$1("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div1, anchor);
-    			append_dev(div1, header);
-    			append_dev(header, h2);
-    			append_dev(header, t1);
-    			append_dev(header, a);
-    			append_dev(header, t3);
-    			append_dev(header, br0);
-    			append_dev(header, t4);
-    			append_dev(header, br1);
-    			append_dev(header, t5);
-    			append_dev(header, br2);
-    			append_dev(header, t6);
-    			append_dev(header, h3);
-    			append_dev(header, t8);
-    			append_dev(header, br3);
-    			append_dev(header, t9);
-    			append_dev(header, br4);
-    			append_dev(header, t10);
-    			append_dev(div1, t11);
+    			append_dev(div1, section);
+    			append_dev(section, h2);
+    			append_dev(section, t1);
+    			append_dev(section, a);
+    			append_dev(section, t3);
+    			append_dev(section, br0);
+    			append_dev(section, t4);
+    			append_dev(section, br1);
+    			append_dev(section, t5);
+    			append_dev(section, br2);
+    			append_dev(section, t6);
+    			append_dev(section, h3);
+    			append_dev(section, t8);
+    			append_dev(section, span);
+    			append_dev(div1, t10);
     			append_dev(div1, div0);
     			append_dev(div0, input);
     			set_input_value(input, /*Username*/ ctx[1]);
-    			append_dev(div0, t12);
+    			append_dev(div0, t11);
     			mount_component(button, div0, null);
-    			append_dev(div1, t13);
+    			append_dev(div1, t12);
     			if (if_block0) if_block0.m(div1, null);
-    			append_dev(div1, t14);
+    			append_dev(div1, t13);
     			if (if_block1) if_block1.m(div1, null);
-    			append_dev(div1, t15);
+    			append_dev(div1, t14);
     			append_dev(div1, footer);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input, "input", /*input_input_handler*/ ctx[17]),
-    					listen_dev(input, "input", /*handleInput*/ ctx[12], false, false, false)
+    					listen_dev(input, "input", /*input_input_handler*/ ctx[18]),
+    					listen_dev(input, "input", /*handleInput*/ ctx[13], false, false, false)
     				];
 
     				mounted = true;
@@ -1955,7 +2118,7 @@ var app = (function () {
     			if (dirty & /*usernameButtonOff*/ 16) button_changes.disabled = /*usernameButtonOff*/ ctx[4];
     			if (dirty & /*vert*/ 1) button_changes.style = /*vert*/ ctx[0] ? "vert" : "inline";
 
-    			if (dirty & /*$$scope, usernameButton*/ 8388612) {
+    			if (dirty & /*$$scope, usernameButton*/ 33554436) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -1972,7 +2135,7 @@ var app = (function () {
     					if_block0 = create_if_block_1$2(ctx);
     					if_block0.c();
     					transition_in(if_block0, 1);
-    					if_block0.m(div1, t14);
+    					if_block0.m(div1, t13);
     				}
     			} else if (if_block0) {
     				group_outros();
@@ -1995,7 +2158,7 @@ var app = (function () {
     					if_block1 = create_if_block$4(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
-    					if_block1.m(div1, t15);
+    					if_block1.m(div1, t14);
     				}
     			} else if (if_block1) {
     				group_outros();
@@ -2067,7 +2230,8 @@ var app = (function () {
     	let joinButtonOff = true;
     	let joinError = false;
     	let joinText = "Join!";
-    	let joinPlaceholder = "Join an existing game";
+    	let joinPlaceholder = "Room Code here";
+    	let nowJoin = false;
 
     	//HOST
     	let hostButtonOff = true;
@@ -2082,19 +2246,20 @@ var app = (function () {
 
     	const handleInput = () => {
     		UsernameLength = false;
-    		$$invalidate(11, hostButtonOff = true);
+    		$$invalidate(12, hostButtonOff = true);
     		$$invalidate(7, joinButtonOff = true);
     		$$invalidate(4, usernameButtonOff = true);
+    		let checkingUser = Username.trim();
 
-    		if (Username.length >= 4 && Username.length < 25) {
+    		if (checkingUser.length >= 4 && checkingUser.length < 25) {
     			UsernameLength = true;
     			$$invalidate(4, usernameButtonOff = false);
-    			$$invalidate(11, hostButtonOff = false);
+    			$$invalidate(12, hostButtonOff = false);
     		}
 
-    		if (UsernameLength && joinCode.length === 5) {
+    		if (checkingUser && joinCode.length === 5) {
     			$$invalidate(7, joinButtonOff = false);
-    			$$invalidate(11, hostButtonOff = true);
+    			$$invalidate(12, hostButtonOff = true);
     		}
     	};
 
@@ -2120,7 +2285,7 @@ var app = (function () {
     	};
 
     	const setUsername = () => {
-    		socket.emit("set-username", Username);
+    		socket.emit("set-username", Username.trim());
     		$$invalidate(1, Username = Username.toUpperCase());
     		$$invalidate(2, usernameButton = "⏳");
 
@@ -2189,13 +2354,17 @@ var app = (function () {
     		$$invalidate(1, Username);
     	}
 
+    	const func = () => {
+    		$$invalidate(11, nowJoin = true);
+    	};
+
     	function input_input_handler_1() {
     		joinCode = this.value;
     		$$invalidate(6, joinCode);
     	}
 
     	$$self.$$set = $$props => {
-    		if ('socket' in $$props) $$invalidate(16, socket = $$props.socket);
+    		if ('socket' in $$props) $$invalidate(17, socket = $$props.socket);
     	};
 
     	$$self.$capture_state = () => ({
@@ -2217,6 +2386,7 @@ var app = (function () {
     		joinError,
     		joinText,
     		joinPlaceholder,
+    		nowJoin,
     		hostButtonOff,
     		getRandomInt: getRandomInt$1,
     		handleInput,
@@ -2228,7 +2398,7 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('socket' in $$props) $$invalidate(16, socket = $$props.socket);
+    		if ('socket' in $$props) $$invalidate(17, socket = $$props.socket);
     		if ('vert' in $$props) $$invalidate(0, vert = $$props.vert);
     		if ('Username' in $$props) $$invalidate(1, Username = $$props.Username);
     		if ('UsernameLength' in $$props) UsernameLength = $$props.UsernameLength;
@@ -2241,7 +2411,8 @@ var app = (function () {
     		if ('joinError' in $$props) $$invalidate(8, joinError = $$props.joinError);
     		if ('joinText' in $$props) $$invalidate(9, joinText = $$props.joinText);
     		if ('joinPlaceholder' in $$props) $$invalidate(10, joinPlaceholder = $$props.joinPlaceholder);
-    		if ('hostButtonOff' in $$props) $$invalidate(11, hostButtonOff = $$props.hostButtonOff);
+    		if ('nowJoin' in $$props) $$invalidate(11, nowJoin = $$props.nowJoin);
+    		if ('hostButtonOff' in $$props) $$invalidate(12, hostButtonOff = $$props.hostButtonOff);
     		if ('hostCode' in $$props) hostCode = $$props.hostCode;
     	};
 
@@ -2261,6 +2432,7 @@ var app = (function () {
     		joinError,
     		joinText,
     		joinPlaceholder,
+    		nowJoin,
     		hostButtonOff,
     		handleInput,
     		joinRoom,
@@ -2268,6 +2440,7 @@ var app = (function () {
     		hostGame,
     		socket,
     		input_input_handler,
+    		func,
     		input_input_handler_1
     	];
     }
@@ -2275,7 +2448,7 @@ var app = (function () {
     class IntroScreen extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$8, create_fragment$8, safe_not_equal, { socket: 16 });
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, { socket: 17 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -2287,7 +2460,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*socket*/ ctx[16] === undefined && !('socket' in props)) {
+    		if (/*socket*/ ctx[17] === undefined && !('socket' in props)) {
     			console_1$4.warn("<IntroScreen> was created without expected prop 'socket'");
     		}
     	}
@@ -3482,7 +3655,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (135:6) {#each { length: turn } as _, i}
+    // (136:6) {#each { length: turn } as _, i}
     function create_each_block_2(ctx) {
     	let div;
     	let t0_value = /*i*/ ctx[28] + 1 + "";
@@ -3506,7 +3679,7 @@ var app = (function () {
     			? "selected"
     			: "") + " svelte-1mdxper"));
 
-    			add_location(div, file$3, 135, 8, 3636);
+    			add_location(div, file$3, 136, 8, 3684);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -3538,14 +3711,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(135:6) {#each { length: turn } as _, i}",
+    		source: "(136:6) {#each { length: turn } as _, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (171:2) {:else}
+    // (172:2) {:else}
     function create_else_block$1(ctx) {
     	let results;
     	let current;
@@ -3591,14 +3764,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(171:2) {:else}",
+    		source: "(172:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (147:2) {#if !roundOver}
+    // (148:2) {#if !roundOver}
     function create_if_block$2(ctx) {
     	let ul0;
     	let t0;
@@ -3664,17 +3837,17 @@ var app = (function () {
     			create_component(button.$$.fragment);
     			attr_dev(ul0, "id", "guessGrid");
     			attr_dev(ul0, "class", "svelte-1mdxper");
-    			add_location(ul0, file$3, 147, 4, 3877);
+    			add_location(ul0, file$3, 148, 4, 3925);
     			attr_dev(input, "type", "text");
     			attr_dev(input, "class", "svelte-1mdxper");
-    			add_location(input, file$3, 153, 6, 4089);
+    			add_location(input, file$3, 154, 6, 4137);
     			attr_dev(ul1, "id", "autoselect");
     			attr_dev(ul1, "class", "svelte-1mdxper");
-    			add_location(ul1, file$3, 154, 6, 4167);
+    			add_location(ul1, file$3, 155, 6, 4215);
     			attr_dev(div, "id", "inputBox");
     			div.hidden = /*showSearch*/ ctx[6];
     			attr_dev(div, "class", "svelte-1mdxper");
-    			add_location(div, file$3, 152, 4, 4042);
+    			add_location(div, file$3, 153, 4, 4090);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, ul0, anchor);
@@ -3820,14 +3993,14 @@ var app = (function () {
     		block,
     		id: create_if_block$2.name,
     		type: "if",
-    		source: "(147:2) {#if !roundOver}",
+    		source: "(148:2) {#if !roundOver}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (149:6) {#each guesses as guess}
+    // (150:6) {#each guesses as guess}
     function create_each_block_1(ctx) {
     	let li;
     	let t_value = /*guess*/ ctx[29].text + "";
@@ -3840,7 +4013,7 @@ var app = (function () {
     			li = element("li");
     			t = text(t_value);
     			attr_dev(li, "class", li_class_value = "" + (null_to_empty(/*guess*/ ctx[29].outcome) + " svelte-1mdxper"));
-    			add_location(li, file$3, 149, 8, 3938);
+    			add_location(li, file$3, 150, 8, 3986);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -3871,14 +4044,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(149:6) {#each guesses as guess}",
+    		source: "(150:6) {#each guesses as guess}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (156:8) {#each autoselect as auto, i}
+    // (157:8) {#each autoselect as auto, i}
     function create_each_block$1(ctx) {
     	let li;
     	let t0_value = /*auto*/ ctx[26] + "";
@@ -3902,7 +4075,7 @@ var app = (function () {
     			t1 = space();
     			attr_dev(li, "name", li_name_value = /*auto*/ ctx[26]);
     			attr_dev(li, "class", "svelte-1mdxper");
-    			add_location(li, file$3, 156, 10, 4238);
+    			add_location(li, file$3, 157, 10, 4286);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, li, anchor);
@@ -3951,14 +4124,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(156:8) {#each autoselect as auto, i}",
+    		source: "(157:8) {#each autoselect as auto, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (170:4) <Button disabled={noGuess} style="wide" func={addGuess}>
+    // (171:4) <Button disabled={noGuess} style="wide" func={addGuess}>
     function create_default_slot$1(ctx) {
     	let t;
 
@@ -3981,7 +4154,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(170:4) <Button disabled={noGuess} style=\\\"wide\\\" func={addGuess}>",
+    		source: "(171:4) <Button disabled={noGuess} style=\\\"wide\\\" func={addGuess}>",
     		ctx
     	});
 
@@ -4035,15 +4208,15 @@ var app = (function () {
     			if (!src_url_equal(img.src, img_src_value = /*imgSRC*/ ctx[0])) attr_dev(img, "src", img_src_value);
     			attr_dev(img, "alt", /*filmThisRound*/ ctx[11].id);
     			attr_dev(img, "class", "svelte-1mdxper");
-    			add_location(img, file$3, 132, 4, 3516);
+    			add_location(img, file$3, 133, 4, 3564);
     			attr_dev(div0, "class", "numList svelte-1mdxper");
-    			add_location(div0, file$3, 133, 4, 3565);
+    			add_location(div0, file$3, 134, 4, 3613);
     			attr_dev(div1, "id", "topBox");
     			attr_dev(div1, "class", "svelte-1mdxper");
-    			add_location(div1, file$3, 131, 2, 3493);
+    			add_location(div1, file$3, 132, 2, 3541);
     			attr_dev(div2, "class", "customScroll svelte-1mdxper");
     			attr_dev(div2, "id", "picker");
-    			add_location(div2, file$3, 130, 0, 3451);
+    			add_location(div2, file$3, 131, 0, 3499);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4243,6 +4416,7 @@ var app = (function () {
     		}
 
     		let guessTarget = guesses[turn - 1];
+    		$$invalidate(3, currentGuess = currentGuess.toUpperCase());
     		guessTarget.text = currentGuess;
     		$$invalidate(8, roundOutcome = { turns: turn, won: null });
 
@@ -4963,14 +5137,14 @@ var app = (function () {
     	}
     }
 
-    var TAMPOPO={"0":"Tampopo_13.jpg","1":"Tampopo_31.jpg","2":"Tampopo_08.jpg","3":"Tampopo_12.jpg","4":"Tampopo_44.jpg",Title:"Tampopo",Year:"1985",Poster:"https://m.media-amazon.com/images/M/MV5BOTE5ZWY2MGEtYjA5ZS00YjdkLTk1MmMtNGFhMDRlNTkzNTRiXkEyXkFqcGdeQXVyMTIyNzY1NzM@._V1_.jpg",Director:"Jûzô Itami",Screenwriter:"Jûzô Itami",Starring:"Ken Watanabe, Nobuko Miyamoto",IMDB:"https://www.imdb.com/title/tt0078748",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"};var ALIEN={"0":"image039%20(1).jpg","1":"image007%20(1).jpg","2":"image010%20(1).jpg","3":"image018%20(1).jpg","4":"image019%20(1).jpg",Title:"Alien",Year:"1979",Poster:"https://m.media-amazon.com/images/M/MV5BOGQzZTBjMjQtOTVmMS00NGE5LWEyYmMtOGQ1ZGZjNmRkYjFhXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg",Director:"Ridley Scott",Screenwriter:"Dan O'Bannon, Ronald Shusett",Starring:"Sigourney Weaver, Tom Skerritt, John Hurt",IMDB:"https://www.imdb.com/title/tt0092048",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"};var IT={"0":"it026.jpg","1":"it008.jpg","2":"it034.jpg","3":"it009.jpg","4":"it005.jpg",Title:"It",Year:"2017",Poster:"https://m.media-amazon.com/images/M/MV5BZDVkZmI0YzAtNzdjYi00ZjhhLWE1ODEtMWMzMWMzNDA0NmQ4XkEyXkFqcGdeQXVyNzYzODM3Mzg@._V1_FMjpg_UX1000_.jpg",Director:"Andy Muschietti",Screenwriter:"Chase Palmer, Cary Joji Fukunaga, Gary Dauberman",Starring:"Bill Skarsgård, Jaeden Martell, Sophia Lillis",IMDB:"https://www.imdb.com/title/tt1396484/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"};var TWISTER={"0":"Twister_017.jpg","1":"Twister_021.jpg","2":"Twister_015.jpg","3":"Twister_032.jpg","4":"Twister_057.jpg",Title:"Twister",Year:"1996",Poster:"https://m.media-amazon.com/images/M/MV5BODExYTM0MzEtZGY2Yy00N2ExLTkwZjItNGYzYTRmMWZlOGEzXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg",Director:"Jan de Bont",Screenwriter:"Anne-Marie Martin, Micheal Crichton",Starring:"Helen Hunt, Bill Paxton, Cary Elwes",IMDB:"https://www.imdb.com/title/tt0117998",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"};var filmData = {"LAST NIGHT IN SOHO":{"0":"Last_Night_In_Soho_008.jpg","1":"Last_Night_In_Soho_025.jpg","2":"Last_Night_In_Soho_001.jpg","3":"Last_Night_In_Soho_026.jpg","4":"Last_Night_In_Soho_014.jpg",Title:"Last Night in Soho",Year:"2021",Poster:"https://m.media-amazon.com/images/M/MV5BZjgwZDIwY2MtNGZlNy00NGRlLWFmNTgtOTBkZThjMDUwMGJhXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg",Director:"Edgar Wright",Screenwriter:"Edgar Wright, Krysty Wilson-Cairns",Starring:"Thomasin McKenzie, Anya Taylor-Joy, Matt Smith",IMDB:"https://www.imdb.com/title/tt9639470",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},TAMPOPO:TAMPOPO,ALIEN:ALIEN,"ME AND EARL AND THE DYING GIRL":{"0":"Me_and_Earl_035.jpg","1":"Me_and_Earl_062.jpg","2":"Me_and_Earl_042.jpg","3":"Me_and_Earl_016.jpg","4":"Me_and_Earl_028.jpg",Title:"Me and Earl and the Dying Girl",Year:"2015",Poster:"https://m.media-amazon.com/images/M/MV5BZTUwZTkxOGMtMmFjYS00MWU2LTk2YjAtNWUzMzAwODM0NzdiXkEyXkFqcGdeQXVyNTA3MTU2MjE@._V1_.jpg",Director:"Alfonso Gomez-Rejon",Screenwriter:"Jesse Andrews",Starring:"Thomas Mann, RJ Cyler, Olivia Cooke",IMDB:"https://www.imdb.com/title/tt2582496/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},IT:IT,"THE LOST WORLD: JURASSIC PARK":{"0":"Jurassic_Park_The_Lost_World_002.jpg","1":"Jurassic_Park_The_Lost_World_048.jpg","2":"Jurassic_Park_The_Lost_World_030.jpg","3":"Jurassic_Park_The_Lost_World_025.jpg","4":"Jurassic_Park_The_Lost_World_060.jpg",Title:"The Lost World: Jurassic Park",Year:"1997",Poster:"https://m.media-amazon.com/images/M/MV5BMDFlMmM4Y2QtNDg1ZS00MWVlLTlmODgtZDdhYjY5YjdhN2M0XkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_.jpg",Director:"Steven Spielberg",Screenwriter:"David Koepp, Micheal Crichton",Starring:"Jeff Goldblum, Julianne Moore, Pete Postlethwaite",IMDB:"https://www.imdb.com/title/tt0119567",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},TWISTER:TWISTER,"THE PRESTIGE":{"0":"06%20(1139).jpg","1":"12%20(1163).jpg","2":"01%20(1140).jpg","3":"15%20(1163).jpg","4":"45%20(1142).jpg",Title:"The Prestige",Year:"2006",Poster:"https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_FMjpg_UX1000_.jpg",Director:"Christopher Nolan",Screenwriter:"Jonathan Nolan, Christopher Nolan",Starring:"Christian Bale, Hugh Jackman, Scarlett Johansson",IMDB:"https://www.imdb.com/title/tt0482571",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"DAZED AND CONFUSED":{"0":"vlcsnap-2014-07-14-11h23m09s215.png","1":"vlcsnap-2014-07-14-11h51m25s68.png","2":"vlcsnap-2014-07-14-11h33m23s2.png","3":"vlcsnap-2014-07-14-11h29m36s27.png","4":"vlcsnap-2014-07-14-11h41m43s134.png",Title:"Dazed and Confused",Year:"1993",Poster:"https://m.media-amazon.com/images/M/MV5BMTM5MDY5MDQyOV5BMl5BanBnXkFtZTgwMzM3NzMxMDE@._V1_FMjpg_UX1000_.jpg",Director:"Richard Linklater",Screenwriter:"Richard Linklater",Starring:"Jason London, Wiley Wiggins, Matthew McConaughey",IMDB:"https://www.imdb.com/title/tt0106677/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"I, ROBOT":{"0":"iRobot_007.jpg","1":"iRobot_002.jpg","2":"iRobot_012.jpg","3":"iRobot_039.jpg","4":"iRobot_022.jpg",Title:"I, Robot",Year:"2004",Poster:"https://m.media-amazon.com/images/M/MV5BNmE1OWI2ZGItMDUyOS00MmU5LWE0MzUtYTQ0YzA1YTE5MGYxXkEyXkFqcGdeQXVyMDM5ODIyNw@@._V1_.jpg",Director:"Alex Proyas",Screenwriter:"Jeff Vintar, Akiva Goldsman",Starring:"Will Smith, Bridget Moynahan, Alan Tudyk",IMDB:"https://www.imdb.com/title/tt0343818/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"BATTLE ROYALE":{"0":"Battle_Royale_006.jpg","1":"Battle_Royale_016.jpg","2":"Battle_Royale_032.jpg","3":"Battle_Royale_034.jpg","4":"Battle_Royale_009.jpg",Title:"Battle Royale",Year:"2000",Poster:"https://m.media-amazon.com/images/M/MV5BMDc2MGYwYzAtNzE2Yi00YmU3LTkxMDUtODk2YjhiNDM5NDIyXkEyXkFqcGdeQXVyMTEwNDU1MzEy._V1_.jpg",Director:"Kinji Fukasaku",Screenwriter:"Kenta Fukasaku, Koushun Takami",Starring:"Tatsuya Fujiware, Aki Maeda, Takeshi Kitano",IMDB:"https://www.imdb.com/title/tt0266308/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"THE LORD OF THE RINGS: THE FELLOWSHIP OF THE RING":{"0":"2516.jpg","1":"8894.jpg","2":"1189.jpg","3":"7172.jpg","4":"12394.jpg",Title:"The Lord of the Rings: The Fellowship of the Ring",Year:"2001",Poster:"https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg",Director:"Peter Jackson",Screenwriter:"Fran Walsh, Philippa Boyens, Peter Jackson",Starring:"Elijah Wood, Ian McKellen, Viggo Mortensen",IMDB:"https://www.imdb.com/title/tt0120737/",prefix:"https://i2.wp.com/caps.pictures/200/1-lotr-fellowship/full/lotr1-movie-screencaps.com-"}};
+    var TAMPOPO={"0":"Tampopo_13.jpg","1":"Tampopo_31.jpg","2":"Tampopo_08.jpg","3":"Tampopo_12.jpg","4":"Tampopo_44.jpg",Title:"Tampopo",Year:"1985",Poster:"https://m.media-amazon.com/images/M/MV5BOTE5ZWY2MGEtYjA5ZS00YjdkLTk1MmMtNGFhMDRlNTkzNTRiXkEyXkFqcGdeQXVyMTIyNzY1NzM@._V1_.jpg",Director:"Jûzô Itami",Screenwriter:"Jûzô Itami",Starring:"Ken Watanabe, Nobuko Miyamoto",IMDB:"https://www.imdb.com/title/tt0078748",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"};var ALIEN={"0":"image039%20(1).jpg","1":"image007%20(1).jpg","2":"image010%20(1).jpg","3":"image018%20(1).jpg","4":"image019%20(1).jpg",Title:"Alien",Year:"1979",Poster:"https://m.media-amazon.com/images/M/MV5BOGQzZTBjMjQtOTVmMS00NGE5LWEyYmMtOGQ1ZGZjNmRkYjFhXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg",Director:"Ridley Scott",Screenwriter:"Dan O'Bannon, Ronald Shusett",Starring:"Sigourney Weaver, Tom Skerritt, John Hurt",IMDB:"https://www.imdb.com/title/tt0092048",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"};var IT={"0":"it026.jpg","1":"it008.jpg","2":"it034.jpg","3":"it009.jpg","4":"it005.jpg",Title:"It",Year:"2017",Poster:"https://m.media-amazon.com/images/M/MV5BZDVkZmI0YzAtNzdjYi00ZjhhLWE1ODEtMWMzMWMzNDA0NmQ4XkEyXkFqcGdeQXVyNzYzODM3Mzg@._V1_FMjpg_UX1000_.jpg",Director:"Andy Muschietti",Screenwriter:"Chase Palmer, Cary Joji Fukunaga, Gary Dauberman",Starring:"Bill Skarsgård, Jaeden Martell, Sophia Lillis",IMDB:"https://www.imdb.com/title/tt1396484/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"};var TWISTER={"0":"Twister_017.jpg","1":"Twister_021.jpg","2":"Twister_015.jpg","3":"Twister_032.jpg","4":"Twister_057.jpg",Title:"Twister",Year:"1996",Poster:"https://m.media-amazon.com/images/M/MV5BODExYTM0MzEtZGY2Yy00N2ExLTkwZjItNGYzYTRmMWZlOGEzXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg",Director:"Jan de Bont",Screenwriter:"Anne-Marie Martin, Micheal Crichton",Starring:"Helen Hunt, Bill Paxton, Cary Elwes",IMDB:"https://www.imdb.com/title/tt0117998",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"};var filmData = {"1984":{"0":"1984_002.jpg","1":"1984_023.jpg","2":"1984_055.jpg","3":"1984_056.jpg","4":"1984_001.jpg",Title:"1984",Year:"1984",Poster:"https://m.media-amazon.com/images/M/MV5BMWFkNzIzNDUtNWI1Mi00ODA2LTgyMTMtYTZiYWMxMDFlNmNhL2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_FMjpg_UX1000_.jpg",Director:"Michael Radford",Screenwriter:"Michael Radford",Starring:"John Hurt, Richard Burton, Suzanna Hamilton",IMDB:"https://www.imdb.com/title/tt0087803/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"LAST NIGHT IN SOHO":{"0":"Last_Night_In_Soho_008.jpg","1":"Last_Night_In_Soho_025.jpg","2":"Last_Night_In_Soho_001.jpg","3":"Last_Night_In_Soho_026.jpg","4":"Last_Night_In_Soho_014.jpg",Title:"Last Night in Soho",Year:"2021",Poster:"https://m.media-amazon.com/images/M/MV5BZjgwZDIwY2MtNGZlNy00NGRlLWFmNTgtOTBkZThjMDUwMGJhXkEyXkFqcGdeQXVyMTEyMjM2NDc2._V1_.jpg",Director:"Edgar Wright",Screenwriter:"Edgar Wright, Krysty Wilson-Cairns",Starring:"Thomasin McKenzie, Anya Taylor-Joy, Matt Smith",IMDB:"https://www.imdb.com/title/tt9639470",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},TAMPOPO:TAMPOPO,ALIEN:ALIEN,"ME AND EARL AND THE DYING GIRL":{"0":"Me_and_Earl_035.jpg","1":"Me_and_Earl_062.jpg","2":"Me_and_Earl_042.jpg","3":"Me_and_Earl_016.jpg","4":"Me_and_Earl_028.jpg",Title:"Me and Earl and the Dying Girl",Year:"2015",Poster:"https://m.media-amazon.com/images/M/MV5BZTUwZTkxOGMtMmFjYS00MWU2LTk2YjAtNWUzMzAwODM0NzdiXkEyXkFqcGdeQXVyNTA3MTU2MjE@._V1_.jpg",Director:"Alfonso Gomez-Rejon",Screenwriter:"Jesse Andrews",Starring:"Thomas Mann, RJ Cyler, Olivia Cooke",IMDB:"https://www.imdb.com/title/tt2582496/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},IT:IT,"THE LOST WORLD: JURASSIC PARK":{"0":"Jurassic_Park_The_Lost_World_002.jpg","1":"Jurassic_Park_The_Lost_World_048.jpg","2":"Jurassic_Park_The_Lost_World_030.jpg","3":"Jurassic_Park_The_Lost_World_025.jpg","4":"Jurassic_Park_The_Lost_World_060.jpg",Title:"The Lost World: Jurassic Park",Year:"1997",Poster:"https://m.media-amazon.com/images/M/MV5BMDFlMmM4Y2QtNDg1ZS00MWVlLTlmODgtZDdhYjY5YjdhN2M0XkEyXkFqcGdeQXVyNTI4MjkwNjA@._V1_.jpg",Director:"Steven Spielberg",Screenwriter:"David Koepp, Micheal Crichton",Starring:"Jeff Goldblum, Julianne Moore, Pete Postlethwaite",IMDB:"https://www.imdb.com/title/tt0119567",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},TWISTER:TWISTER,"THE PRESTIGE":{"0":"06%20(1139).jpg","1":"12%20(1163).jpg","2":"01%20(1140).jpg","3":"15%20(1163).jpg","4":"45%20(1142).jpg",Title:"The Prestige",Year:"2006",Poster:"https://m.media-amazon.com/images/M/MV5BMjA4NDI0MTIxNF5BMl5BanBnXkFtZTYwNTM0MzY2._V1_FMjpg_UX1000_.jpg",Director:"Christopher Nolan",Screenwriter:"Jonathan Nolan, Christopher Nolan",Starring:"Christian Bale, Hugh Jackman, Scarlett Johansson",IMDB:"https://www.imdb.com/title/tt0482571",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"DAZED AND CONFUSED":{"0":"vlcsnap-2014-07-14-11h23m09s215.png","1":"vlcsnap-2014-07-14-11h51m25s68.png","2":"vlcsnap-2014-07-14-11h33m23s2.png","3":"vlcsnap-2014-07-14-11h29m36s27.png","4":"vlcsnap-2014-07-14-11h41m43s134.png",Title:"Dazed and Confused",Year:"1993",Poster:"https://m.media-amazon.com/images/M/MV5BMTM5MDY5MDQyOV5BMl5BanBnXkFtZTgwMzM3NzMxMDE@._V1_FMjpg_UX1000_.jpg",Director:"Richard Linklater",Screenwriter:"Richard Linklater",Starring:"Jason London, Wiley Wiggins, Matthew McConaughey",IMDB:"https://www.imdb.com/title/tt0106677/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"I, ROBOT":{"0":"iRobot_007.jpg","1":"iRobot_002.jpg","2":"iRobot_012.jpg","3":"iRobot_039.jpg","4":"iRobot_022.jpg",Title:"I, Robot",Year:"2004",Poster:"https://m.media-amazon.com/images/M/MV5BNmE1OWI2ZGItMDUyOS00MmU5LWE0MzUtYTQ0YzA1YTE5MGYxXkEyXkFqcGdeQXVyMDM5ODIyNw@@._V1_.jpg",Director:"Alex Proyas",Screenwriter:"Jeff Vintar, Akiva Goldsman",Starring:"Will Smith, Bridget Moynahan, Alan Tudyk",IMDB:"https://www.imdb.com/title/tt0343818/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"BATTLE ROYALE":{"0":"Battle_Royale_006.jpg","1":"Battle_Royale_016.jpg","2":"Battle_Royale_032.jpg","3":"Battle_Royale_034.jpg","4":"Battle_Royale_009.jpg",Title:"Battle Royale",Year:"2000",Poster:"https://m.media-amazon.com/images/M/MV5BMDc2MGYwYzAtNzE2Yi00YmU3LTkxMDUtODk2YjhiNDM5NDIyXkEyXkFqcGdeQXVyMTEwNDU1MzEy._V1_.jpg",Director:"Kinji Fukasaku",Screenwriter:"Kenta Fukasaku, Koushun Takami",Starring:"Tatsuya Fujiware, Aki Maeda, Takeshi Kitano",IMDB:"https://www.imdb.com/title/tt0266308/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"THE LORD OF THE RINGS: THE FELLOWSHIP OF THE RING":{"0":"2516.jpg","1":"8894.jpg","2":"1189.jpg","3":"7172.jpg","4":"12394.jpg",Title:"The Lord of the Rings: The Fellowship of the Ring",Year:"2001",Poster:"https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_.jpg",Director:"Peter Jackson",Screenwriter:"Fran Walsh, Philippa Boyens, Peter Jackson",Starring:"Elijah Wood, Ian McKellen, Viggo Mortensen",IMDB:"https://www.imdb.com/title/tt0120737/",prefix:"https://i2.wp.com/caps.pictures/200/1-lotr-fellowship/full/lotr1-movie-screencaps.com-"},"THE THING":{"0":"10.jpg","1":"2128.jpg","2":"3337.jpg","3":"5342.jpg","4":"9845.jpg",Title:"The Thing",Year:"1982",Poster:"https://m.media-amazon.com/images/M/MV5BNGViZWZmM2EtNGYzZi00ZDAyLTk3ODMtNzIyZTBjN2Y1NmM1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",Director:"John Carpenter",Screenwriter:"Bill Lancaster, John W. Campbell Jr",Starring:"Kurt Russell, Keith David, Wilford Brimley",IMDB:"https://www.imdb.com/title/tt0084787/",prefix:"https://i2.wp.com/caps.pictures/198/2-thething/full/thething-movie-screencaps.com-"},"12 ANGRY MEN":{"0":"01%20(3).jpg","1":"04%20(3).jpg","2":"44%20(3).jpg","3":"19%20(3).jpg","4":"48%20(3).jpg",Title:"12 Angry Men",Year:"1957",Poster:"https://m.media-amazon.com/images/M/MV5BMWU4N2FjNzYtNTVkNC00NzQ0LTg0MjAtYTJlMjFhNGUxZDFmXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_FMjpg_UX1000_.jpg",Director:"Sidney Lumet",Screenwriter:"Reginald Rose",Starring:"Henry Fonda, Lee J.Cobb, E.G Marshall",IMDB:"https://www.imdb.com/title/tt0050083/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"500 DAYS OF SUMMER":{"0":"39%20(12).jpg","1":"04%20(12).jpg","2":"12%20(12).jpg","3":"53%20(11).jpg","4":"40%20(12).jpg",Title:"500 Days of Summer",Year:"2009",Poster:"https://m.media-amazon.com/images/M/MV5BMTk5MjM4OTU1OV5BMl5BanBnXkFtZTcwODkzNDIzMw@@._V1_.jpg",Director:"Marc Webb",Screenwriter:"Scott Neustadter, Michael H. Weber",Starring:"Zooey Deschanel, Joseph Gordon-Levitt",IMDB:"https://www.imdb.com/title/tt1022603/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"A GHOST STORY":{"0":"ghost007.jpg","1":"ghost008.jpg","2":"ghost001.jpg","3":"ghost021.jpg","4":"ghost047.jpg",Title:"A Ghost Story",Year:"2017",Poster:"https://m.media-amazon.com/images/M/MV5BMzcyNTc1ODQzMF5BMl5BanBnXkFtZTgwNTgzMzY4MTI@._V1_.jpg",Director:"David Lowery",Screenwriter:"David Lowery",Starring:"Casey Affleck, Rooney Mara",IMDB:"https://www.imdb.com/title/tt6265828/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"},"AMÉLIE":{"0":"10%20(63).jpg","1":"37%20(62).jpg","2":"48%20(59).jpg","3":"06%20(62).jpg","4":"15%20(63).jpg",Title:"Amélie",Year:"2001",Poster:"https://m.media-amazon.com/images/M/MV5BNDg4NjM1YjMtYmNhZC00MjM0LWFiZmYtNGY1YjA3MzZmODc5XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_.jpg",Director:"Jean-Pierre Jeunet",Screenwriter:"Guillaume Laurant, Jean-Pierre Jeunet",Starring:"Audrey Tautou, Mathieu Kassovitz",IMDB:"https://www.imdb.com/title/tt0211915/",prefix:"https://film-grab.com/wp-content/uploads/photo-gallery/"}};
 
     /* src\Game.svelte generated by Svelte v3.47.0 */
 
     const { Object: Object_1, console: console_1$1 } = globals;
     const file$1 = "src\\Game.svelte";
 
-    // (90:2) {:else}
+    // (103:2) {:else}
     function create_else_block_2(ctx) {
     	let introscreen;
     	let current;
@@ -5013,14 +5187,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(90:2) {:else}",
+    		source: "(103:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (84:23) 
+    // (97:23) 
     function create_if_block_2(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -5093,14 +5267,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(84:23) ",
+    		source: "(97:23) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (78:2) {#if gameRunning}
+    // (91:2) {#if gameRunning}
     function create_if_block(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -5173,14 +5347,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(78:2) {#if gameRunning}",
+    		source: "(91:2) {#if gameRunning}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (87:4) {:else}
+    // (100:4) {:else}
     function create_else_block_1(ctx) {
     	let lobby;
     	let current;
@@ -5221,14 +5395,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(87:4) {:else}",
+    		source: "(100:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (85:4) {#if hosting}
+    // (98:4) {#if hosting}
     function create_if_block_3(ctx) {
     	let hostsettings;
     	let current;
@@ -5271,14 +5445,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(85:4) {#if hosting}",
+    		source: "(98:4) {#if hosting}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (81:4) {:else}
+    // (94:4) {:else}
     function create_else_block(ctx) {
     	let filmpicker;
     	let current;
@@ -5325,14 +5499,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(81:4) {:else}",
+    		source: "(94:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (79:4) {#if leaderboardOn}
+    // (92:4) {#if leaderboardOn}
     function create_if_block_1(ctx) {
     	let leaderboard;
     	let current;
@@ -5381,7 +5555,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(79:4) {#if leaderboardOn}",
+    		source: "(92:4) {#if leaderboardOn}",
     		ctx
     	});
 
@@ -5410,7 +5584,7 @@ var app = (function () {
     			game = element("game");
     			if_block.c();
     			attr_dev(game, "class", "customScroll svelte-x1mj3k");
-    			add_location(game, file$1, 76, 0, 2090);
+    			add_location(game, file$1, 89, 0, 2535);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5483,6 +5657,7 @@ var app = (function () {
     	const dispatch = createEventDispatcher();
     	let { socket } = $$props;
     	let filmNames = Object.keys(filmData);
+    	console.log(`There are ${filmNames.length} films!`);
     	let gameBooted = false;
     	let gameRunning = false;
     	let leaderboardOn = false;
@@ -5494,13 +5669,26 @@ var app = (function () {
     	console.log(filmData);
 
     	function generateFilms(rounds) {
+    		let storage = window.localStorage;
+    		let previous = [];
+
+    		if (storage.getItem("previous")) {
+    			previous = JSON.parse(storage.getItem("previous"));
+    			if (previous.length + rounds > filmNames.length) previous = [];
+    		}
+
     		let filmsChosen = [];
 
     		while (filmsChosen.length != rounds) {
     			let filmNum = getRandomInt(filmNames.length);
-    			if (!filmsChosen.includes(filmNum)) filmsChosen.push(filmNum);
+
+    			if (!filmsChosen.includes(filmNum) && !previous.includes(filmNum)) {
+    				filmsChosen.push(filmNum);
+    				previous.push(filmNum);
+    			}
     		}
 
+    		storage.setItem("previous", JSON.stringify(previous));
     		return filmsChosen;
     	}
 
