@@ -33,19 +33,11 @@
 <style lang="scss">
   #results {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas:
-      "text"
-      "poster";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 0px 0px;
     @media (max-width: 580px) {
       font-size: clamp(20px, 3vh, 40px);
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr;
-      grid-template-areas:
-        "poster"
-        "text";
       font-size: 0.8rem;
       padding: 1rem;
     }
@@ -61,10 +53,16 @@
     }
   }
   #resultText {
-    grid-area: text;
+    grid-area: 1 / 1/ 3/ 2;
+    @media (max-width: 580px) {
+      grid-area: 2 / 1 / 3 / 3;
+    }
   }
   #resultImg {
-    grid-area: poster;
+    grid-area: 1/2/3/3;
+    @media (max-width: 580px) {
+      grid-area: 1/1/2/3;
+    }
   }
   a {
     color: var(--accent);
