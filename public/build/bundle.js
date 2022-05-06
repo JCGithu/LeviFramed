@@ -1913,7 +1913,7 @@ var app = (function () {
     	return block;
     }
 
-    // (167:2) {#if joinError}
+    // (166:2) {#if joinError}
     function create_if_block$4(ctx) {
     	let error;
     	let current;
@@ -1954,7 +1954,7 @@ var app = (function () {
     		block,
     		id: create_if_block$4.name,
     		type: "if",
-    		source: "(167:2) {#if joinError}",
+    		source: "(166:2) {#if joinError}",
     		ctx
     	});
 
@@ -2058,7 +2058,7 @@ var app = (function () {
     			attr_dev(div0, "class", "fadeIn inputGroup svelte-15ry2au");
     			add_location(div0, file$8, 143, 2, 3958);
     			attr_dev(footer, "class", "svelte-15ry2au");
-    			add_location(footer, file$8, 169, 2, 5005);
+    			add_location(footer, file$8, 168, 2, 4916);
     			attr_dev(div1, "id", "intro");
     			attr_dev(div1, "class", "customScroll svelte-15ry2au");
     			add_location(div1, file$8, 131, 0, 3521);

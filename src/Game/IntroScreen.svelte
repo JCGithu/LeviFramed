@@ -23,7 +23,8 @@
   let joinButtonOff = true;
   let joinError = false;
   let joinText = "Join!";
-  let joinPlaceholder = "Join an existing game";
+  let joinPlaceholder = "Room Code here";
+  let nowJoin = false;
 
   //HOST
   let hostButtonOff = true;
@@ -46,12 +47,13 @@
     hostButtonOff = true;
     joinButtonOff = true;
     usernameButtonOff = true;
-    if (Username.length >= 4 && Username.length < 25) {
+    let checkingUser = Username.trim();
+    if (checkingUser.length >= 4 && checkingUser.length < 25) {
       UsernameLength = true;
       usernameButtonOff = false;
       hostButtonOff = false;
     }
-    if (UsernameLength && joinCode.length === 5) {
+    if (checkingUser && joinCode.length === 5) {
       joinButtonOff = false;
       hostButtonOff = true;
     }
@@ -77,7 +79,7 @@
   };
 
   const setUsername = () => {
-    socket.emit("set-username", Username);
+    socket.emit("set-username", Username.trim());
     Username = Username.toUpperCase();
     usernameButton = "⏳";
     socket.on("valid-username", (valid) => {
@@ -127,8 +129,8 @@
   };
 </script>
 
-<div class="customScroll">
-  <header>
+<div id="intro" class="customScroll">
+  <section>
     <h2>Hi!</h2>
     This is like
     <a href="http://framed.wtf">Framed</a>, only with friends.
@@ -137,18 +139,29 @@
     <br />
     <br />
     <h3>How to Play:</h3>
-    Each turn you will be shown a single image from a film.<br />Guess what you think it is! <br /> Points are earned based on how few turns you take to guess the film.
-  </header>
+    <span>Each turn you will be shown a single image from a film. Guess what you think it is! Points are earned based on how few turns you take to guess the film.</span>
+  </section>
   <div class="fadeIn inputGroup">
     <input type="text" bind:value={Username} on:input={handleInput} placeholder={userPlaceholder} />
     <Button disabled={usernameButtonOff} style={vert ? "vert" : "inline"} func={setUsername}>{usernameButton}</Button>
   </div>
   {#if usernameSet}
-    <div class="fadeIn inputGroup">
-      <input type="text" bind:value={joinCode} on:input={handleInput} placeholder={joinPlaceholder} />
-      <Button disabled={joinButtonOff} style={vert ? "vert" : "inline"} func={joinRoom}>{joinText}</Button>
-    </div>
-    <Button style="fadeIn wide" disabled={hostButtonOff} func={hostGame}>Host a game!</Button>
+    {#if !nowJoin}
+      <div class="choose fadeIn">
+        <Button
+          style="wide dual"
+          func={() => {
+            nowJoin = true;
+          }}>Joining?</Button
+        >
+        <Button style="wide dual" func={hostGame} disabled={hostButtonOff}>or Hosting?</Button>
+      </div>
+    {:else}
+      <div class="fadeIn inputGroup">
+        <input type="text" bind:value={joinCode} on:input={handleInput} placeholder={joinPlaceholder} />
+        <Button disabled={joinButtonOff} style={vert ? "vert" : "inline"} func={joinRoom}>{joinText}</Button>
+      </div>
+    {/if}
   {/if}
   {#if joinError}
     <Error msg={joinError} />
@@ -157,10 +170,13 @@
 </div>
 
 <style lang="scss">
-  header {
+  section {
     padding: 0.5rem;
     margin: 0.5rem;
     text-align: center;
+    span {
+      text-align: justify;
+    }
     h2,
     h3 {
       padding: 0;
@@ -179,7 +195,7 @@
       }
     }
   }
-  div {
+  #intro {
     display: flex;
     flex-direction: column;
     width: min(80%, 520px);
@@ -217,9 +233,16 @@
     padding: 0.3rem 1rem;
     text-align: center;
     text-transform: uppercase;
+    &::placeholder {
+      text-transform: none;
+    }
     &:focus {
       outline: none;
     }
+  }
+  .choose {
+    display: flex;
+    flex-direction: row;
   }
   footer {
     width: 100vw;
