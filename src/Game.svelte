@@ -11,7 +11,8 @@
   import filmData from "../filmData.json";
 
   let filmNames = Object.keys(filmData);
-  console.log(`There are ${filmNames.length} films!`);
+  let filmTotal = filmNames.length;
+  console.log(`There are ${filmTotal} films!`);
   let gameBooted = false;
   let gameRunning = false;
   let leaderboardOn = false;
@@ -32,12 +33,12 @@
 
     if (storage.getItem("previous")) {
       previous = JSON.parse(storage.getItem("previous"));
-      if (previous.length + rounds > filmNames.length) previous = [];
+      if (previous.length + rounds > filmTotal) previous = [];
     }
 
     let filmsChosen = [];
     while (filmsChosen.length != rounds) {
-      let filmNum = getRandomInt(filmNames.length);
+      let filmNum = getRandomInt(filmTotal);
       if (!filmsChosen.includes(filmNum) && !previous.includes(filmNum)) {
         filmsChosen.push(filmNum);
         previous.push(filmNum);
@@ -62,7 +63,7 @@
   }
 
   function hostStarts({ detail }) {
-    if (detail.numberOfRounds > filmNames.length) detail.numberOfRounds = filmNames.length;
+    if (detail.numberOfRounds > filmTotal) detail.numberOfRounds = filmTotal;
     let generated = generateFilms(detail.numberOfRounds);
     detail.films = generated;
     console.log(detail);
@@ -101,7 +102,7 @@
       <Lobby {players} />
     {/if}
   {:else}
-    <IntroScreen on:boot={bootGame} {socket} />
+    <IntroScreen on:boot={bootGame} {socket} {filmTotal} />
   {/if}
 </game>
 

@@ -5,6 +5,8 @@
   import { slide } from "svelte/transition";
 
   export let socket;
+  export let filmTotal;
+
   import Button from "../Components/Button.svelte";
   import Error from "../Components/Error.svelte";
 
@@ -166,6 +168,11 @@
   {#if joinError}
     <Error msg={joinError} />
   {/if}
+  <div id="discord">
+    <p>There are currently&nbsp;<b>{filmTotal}</b>&nbsp;films in the database!</p>
+    <p>If you'd like to add more please join the <a href="https://discord.gg/Svw7utAyNr" style="color: #5865f2;"> Discord&nbsp;<img src="https://www.svgrepo.com/show/353655/discord-icon.svg" /> </a></p>
+    <p>Or donate to <a href="https://ko-fi.com/colloquial" style="color: #FF5E5B">Ko-Fi&nbsp;<img src="https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg" /></a></p>
+  </div>
   <footer>In chat no one can hear you scream...</footer>
 </div>
 
@@ -187,13 +194,15 @@
       text-decoration: underline;
       color: white;
       text-decoration-color: var(--accent);
-      font-weight: bold;
-      transition: all 0.3s;
       &:hover {
         color: var(--accent);
         text-decoration-color: white;
       }
     }
+  }
+  a {
+    font-weight: bold;
+    transition: all 0.3s;
   }
   #intro {
     display: flex;
@@ -258,6 +267,42 @@
     }
     @media (max-height: 850px) {
       font-size: 0.5rem;
+    }
+  }
+  #discord {
+    font-size: 0.7rem;
+    text-align: justify;
+    width: calc(100% - 3rem);
+    margin: 0 1rem;
+    background-color: rgba(white, 0.1);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    p {
+      margin: 0.1rem;
+      display: inline-flex;
+      align-items: center;
+    }
+    img {
+      width: 1rem;
+      //margin-top: 0.1rem;
+      transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transform-origin: center;
+      transform: scale(0);
+    }
+    a {
+      display: inline-flex;
+      align-items: center;
+      margin: 0 0.2rem;
+      text-decoration: none;
+      &:hover {
+        img {
+          transform: scale(1);
+        }
+      }
     }
   }
 </style>

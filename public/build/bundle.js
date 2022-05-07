@@ -195,6 +195,14 @@ var app = (function () {
     function set_input_value(input, value) {
         input.value = value == null ? '' : value;
     }
+    function set_style(node, key, value, important) {
+        if (value === null) {
+            node.style.removeProperty(key);
+        }
+        else {
+            node.style.setProperty(key, value, important ? 'important' : '');
+        }
+    }
     function custom_event(type, detail, bubbles = false) {
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, bubbles, false, detail);
@@ -1529,19 +1537,19 @@ var app = (function () {
     const { Error: Error_1$1, console: console_1$4 } = globals;
     const file$8 = "src\\Game\\IntroScreen.svelte";
 
-    // (146:4) <Button disabled={usernameButtonOff} style={vert ? "vert" : "inline"} func={setUsername}>
+    // (148:4) <Button disabled={usernameButtonOff} style={vert ? "vert" : "inline"} func={setUsername}>
     function create_default_slot_3(ctx) {
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text(/*usernameButton*/ ctx[2]);
+    			t = text(/*usernameButton*/ ctx[3]);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*usernameButton*/ 4) set_data_dev(t, /*usernameButton*/ ctx[2]);
+    			if (dirty & /*usernameButton*/ 8) set_data_dev(t, /*usernameButton*/ ctx[3]);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -1552,14 +1560,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(146:4) <Button disabled={usernameButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={setUsername}>",
+    		source: "(148:4) <Button disabled={usernameButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={setUsername}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (148:2) {#if usernameSet}
+    // (150:2) {#if usernameSet}
     function create_if_block_1$2(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -1569,7 +1577,7 @@ var app = (function () {
     	const if_blocks = [];
 
     	function select_block_type(ctx, dirty) {
-    		if (!/*nowJoin*/ ctx[11]) return 0;
+    		if (!/*nowJoin*/ ctx[12]) return 0;
     		return 1;
     	}
 
@@ -1632,14 +1640,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$2.name,
     		type: "if",
-    		source: "(148:2) {#if usernameSet}",
+    		source: "(150:2) {#if usernameSet}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (159:4) {:else}
+    // (161:4) {:else}
     function create_else_block$2(ctx) {
     	let div;
     	let input;
@@ -1651,9 +1659,9 @@ var app = (function () {
 
     	button = new Button({
     			props: {
-    				disabled: /*joinButtonOff*/ ctx[7],
-    				style: /*vert*/ ctx[0] ? "vert" : "inline",
-    				func: /*joinRoom*/ ctx[14],
+    				disabled: /*joinButtonOff*/ ctx[8],
+    				style: /*vert*/ ctx[1] ? "vert" : "inline",
+    				func: /*joinRoom*/ ctx[15],
     				$$slots: { default: [create_default_slot_2] },
     				$$scope: { ctx }
     			},
@@ -1667,43 +1675,43 @@ var app = (function () {
     			t = space();
     			create_component(button.$$.fragment);
     			attr_dev(input, "type", "text");
-    			attr_dev(input, "placeholder", /*joinPlaceholder*/ ctx[10]);
-    			attr_dev(input, "class", "svelte-15ry2au");
-    			add_location(input, file$8, 160, 8, 4612);
-    			attr_dev(div, "class", "fadeIn inputGroup svelte-15ry2au");
-    			add_location(div, file$8, 159, 6, 4571);
+    			attr_dev(input, "placeholder", /*joinPlaceholder*/ ctx[11]);
+    			attr_dev(input, "class", "svelte-l24vxx");
+    			add_location(input, file$8, 162, 8, 4639);
+    			attr_dev(div, "class", "fadeIn inputGroup svelte-l24vxx");
+    			add_location(div, file$8, 161, 6, 4598);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
     			append_dev(div, input);
-    			set_input_value(input, /*joinCode*/ ctx[6]);
+    			set_input_value(input, /*joinCode*/ ctx[7]);
     			append_dev(div, t);
     			mount_component(button, div, null);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input, "input", /*input_input_handler_1*/ ctx[20]),
-    					listen_dev(input, "input", /*handleInput*/ ctx[13], false, false, false)
+    					listen_dev(input, "input", /*input_input_handler_1*/ ctx[21]),
+    					listen_dev(input, "input", /*handleInput*/ ctx[14], false, false, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, dirty) {
-    			if (!current || dirty & /*joinPlaceholder*/ 1024) {
-    				attr_dev(input, "placeholder", /*joinPlaceholder*/ ctx[10]);
+    			if (!current || dirty & /*joinPlaceholder*/ 2048) {
+    				attr_dev(input, "placeholder", /*joinPlaceholder*/ ctx[11]);
     			}
 
-    			if (dirty & /*joinCode*/ 64 && input.value !== /*joinCode*/ ctx[6]) {
-    				set_input_value(input, /*joinCode*/ ctx[6]);
+    			if (dirty & /*joinCode*/ 128 && input.value !== /*joinCode*/ ctx[7]) {
+    				set_input_value(input, /*joinCode*/ ctx[7]);
     			}
 
     			const button_changes = {};
-    			if (dirty & /*joinButtonOff*/ 128) button_changes.disabled = /*joinButtonOff*/ ctx[7];
-    			if (dirty & /*vert*/ 1) button_changes.style = /*vert*/ ctx[0] ? "vert" : "inline";
+    			if (dirty & /*joinButtonOff*/ 256) button_changes.disabled = /*joinButtonOff*/ ctx[8];
+    			if (dirty & /*vert*/ 2) button_changes.style = /*vert*/ ctx[1] ? "vert" : "inline";
 
-    			if (dirty & /*$$scope, joinText*/ 33554944) {
+    			if (dirty & /*$$scope, joinText*/ 67109888) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
@@ -1730,14 +1738,14 @@ var app = (function () {
     		block,
     		id: create_else_block$2.name,
     		type: "else",
-    		source: "(159:4) {:else}",
+    		source: "(161:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (149:4) {#if !nowJoin}
+    // (151:4) {#if !nowJoin}
     function create_if_block_2$1(ctx) {
     	let div;
     	let button0;
@@ -1748,7 +1756,7 @@ var app = (function () {
     	button0 = new Button({
     			props: {
     				style: "wide dual",
-    				func: /*func*/ ctx[19],
+    				func: /*func*/ ctx[20],
     				$$slots: { default: [create_default_slot_1] },
     				$$scope: { ctx }
     			},
@@ -1758,8 +1766,8 @@ var app = (function () {
     	button1 = new Button({
     			props: {
     				style: "wide dual",
-    				func: /*hostGame*/ ctx[16],
-    				disabled: /*hostButtonOff*/ ctx[12],
+    				func: /*hostGame*/ ctx[17],
+    				disabled: /*hostButtonOff*/ ctx[13],
     				$$slots: { default: [create_default_slot$4] },
     				$$scope: { ctx }
     			},
@@ -1772,8 +1780,8 @@ var app = (function () {
     			create_component(button0.$$.fragment);
     			t = space();
     			create_component(button1.$$.fragment);
-    			attr_dev(div, "class", "choose fadeIn svelte-15ry2au");
-    			add_location(div, file$8, 149, 6, 4270);
+    			attr_dev(div, "class", "choose fadeIn svelte-l24vxx");
+    			add_location(div, file$8, 151, 6, 4297);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -1784,17 +1792,17 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const button0_changes = {};
-    			if (dirty & /*nowJoin*/ 2048) button0_changes.func = /*func*/ ctx[19];
+    			if (dirty & /*nowJoin*/ 4096) button0_changes.func = /*func*/ ctx[20];
 
-    			if (dirty & /*$$scope*/ 33554432) {
+    			if (dirty & /*$$scope*/ 67108864) {
     				button0_changes.$$scope = { dirty, ctx };
     			}
 
     			button0.$set(button0_changes);
     			const button1_changes = {};
-    			if (dirty & /*hostButtonOff*/ 4096) button1_changes.disabled = /*hostButtonOff*/ ctx[12];
+    			if (dirty & /*hostButtonOff*/ 8192) button1_changes.disabled = /*hostButtonOff*/ ctx[13];
 
-    			if (dirty & /*$$scope*/ 33554432) {
+    			if (dirty & /*$$scope*/ 67108864) {
     				button1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -1822,26 +1830,26 @@ var app = (function () {
     		block,
     		id: create_if_block_2$1.name,
     		type: "if",
-    		source: "(149:4) {#if !nowJoin}",
+    		source: "(151:4) {#if !nowJoin}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (162:8) <Button disabled={joinButtonOff} style={vert ? "vert" : "inline"} func={joinRoom}>
+    // (164:8) <Button disabled={joinButtonOff} style={vert ? "vert" : "inline"} func={joinRoom}>
     function create_default_slot_2(ctx) {
     	let t;
 
     	const block = {
     		c: function create() {
-    			t = text(/*joinText*/ ctx[9]);
+    			t = text(/*joinText*/ ctx[10]);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t, anchor);
     		},
     		p: function update(ctx, dirty) {
-    			if (dirty & /*joinText*/ 512) set_data_dev(t, /*joinText*/ ctx[9]);
+    			if (dirty & /*joinText*/ 1024) set_data_dev(t, /*joinText*/ ctx[10]);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -1852,14 +1860,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(162:8) <Button disabled={joinButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={joinRoom}>",
+    		source: "(164:8) <Button disabled={joinButtonOff} style={vert ? \\\"vert\\\" : \\\"inline\\\"} func={joinRoom}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (151:8) <Button            style="wide dual"            func={() => {              nowJoin = true;            }}>
+    // (153:8) <Button            style="wide dual"            func={() => {              nowJoin = true;            }}>
     function create_default_slot_1(ctx) {
     	let t;
 
@@ -1879,14 +1887,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(151:8) <Button            style=\\\"wide dual\\\"            func={() => {              nowJoin = true;            }}>",
+    		source: "(153:8) <Button            style=\\\"wide dual\\\"            func={() => {              nowJoin = true;            }}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (157:8) <Button style="wide dual" func={hostGame} disabled={hostButtonOff}>
+    // (159:8) <Button style="wide dual" func={hostGame} disabled={hostButtonOff}>
     function create_default_slot$4(ctx) {
     	let t;
 
@@ -1906,20 +1914,20 @@ var app = (function () {
     		block,
     		id: create_default_slot$4.name,
     		type: "slot",
-    		source: "(157:8) <Button style=\\\"wide dual\\\" func={hostGame} disabled={hostButtonOff}>",
+    		source: "(159:8) <Button style=\\\"wide dual\\\" func={hostGame} disabled={hostButtonOff}>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (166:2) {#if joinError}
+    // (168:2) {#if joinError}
     function create_if_block$4(ctx) {
     	let error;
     	let current;
 
     	error = new Error$1({
-    			props: { msg: /*joinError*/ ctx[8] },
+    			props: { msg: /*joinError*/ ctx[9] },
     			$$inline: true
     		});
 
@@ -1933,7 +1941,7 @@ var app = (function () {
     		},
     		p: function update(ctx, dirty) {
     			const error_changes = {};
-    			if (dirty & /*joinError*/ 256) error_changes.msg = /*joinError*/ ctx[8];
+    			if (dirty & /*joinError*/ 512) error_changes.msg = /*joinError*/ ctx[9];
     			error.$set(error_changes);
     		},
     		i: function intro(local) {
@@ -1954,7 +1962,7 @@ var app = (function () {
     		block,
     		id: create_if_block$4.name,
     		type: "if",
-    		source: "(166:2) {#if joinError}",
+    		source: "(168:2) {#if joinError}",
     		ctx
     	});
 
@@ -1962,11 +1970,11 @@ var app = (function () {
     }
 
     function create_fragment$8(ctx) {
-    	let div1;
+    	let div2;
     	let section;
     	let h2;
     	let t1;
-    	let a;
+    	let a0;
     	let t3;
     	let br0;
     	let t4;
@@ -1985,6 +1993,27 @@ var app = (function () {
     	let t12;
     	let t13;
     	let t14;
+    	let div1;
+    	let p0;
+    	let t15;
+    	let b;
+    	let t16;
+    	let t17;
+    	let t18;
+    	let p1;
+    	let t19;
+    	let a1;
+    	let t20;
+    	let img0;
+    	let img0_src_value;
+    	let t21;
+    	let p2;
+    	let t22;
+    	let a2;
+    	let t23;
+    	let img1;
+    	let img1_src_value;
+    	let t24;
     	let footer;
     	let current;
     	let mounted;
@@ -1992,27 +2021,27 @@ var app = (function () {
 
     	button = new Button({
     			props: {
-    				disabled: /*usernameButtonOff*/ ctx[4],
-    				style: /*vert*/ ctx[0] ? "vert" : "inline",
-    				func: /*setUsername*/ ctx[15],
+    				disabled: /*usernameButtonOff*/ ctx[5],
+    				style: /*vert*/ ctx[1] ? "vert" : "inline",
+    				func: /*setUsername*/ ctx[16],
     				$$slots: { default: [create_default_slot_3] },
     				$$scope: { ctx }
     			},
     			$$inline: true
     		});
 
-    	let if_block0 = /*usernameSet*/ ctx[3] && create_if_block_1$2(ctx);
-    	let if_block1 = /*joinError*/ ctx[8] && create_if_block$4(ctx);
+    	let if_block0 = /*usernameSet*/ ctx[4] && create_if_block_1$2(ctx);
+    	let if_block1 = /*joinError*/ ctx[9] && create_if_block$4(ctx);
 
     	const block = {
     		c: function create() {
-    			div1 = element("div");
+    			div2 = element("div");
     			section = element("section");
     			h2 = element("h2");
     			h2.textContent = "Hi!";
     			t1 = text("\r\n    This is like\r\n    ");
-    			a = element("a");
-    			a.textContent = "Framed";
+    			a0 = element("a");
+    			a0.textContent = "Framed";
     			t3 = text(", only with friends.\r\n    ");
     			br0 = element("br");
     			t4 = text("\r\n    Join a room or host your own.\r\n    ");
@@ -2035,43 +2064,86 @@ var app = (function () {
     			t13 = space();
     			if (if_block1) if_block1.c();
     			t14 = space();
+    			div1 = element("div");
+    			p0 = element("p");
+    			t15 = text("There are currently ");
+    			b = element("b");
+    			t16 = text(/*filmTotal*/ ctx[0]);
+    			t17 = text(" films in the database!");
+    			t18 = space();
+    			p1 = element("p");
+    			t19 = text("If you'd like to add more please join the ");
+    			a1 = element("a");
+    			t20 = text("Discord ");
+    			img0 = element("img");
+    			t21 = space();
+    			p2 = element("p");
+    			t22 = text("Or donate to ");
+    			a2 = element("a");
+    			t23 = text("Ko-Fi ");
+    			img1 = element("img");
+    			t24 = space();
     			footer = element("footer");
     			footer.textContent = "In chat no one can hear you scream...";
-    			attr_dev(h2, "class", "svelte-15ry2au");
-    			add_location(h2, file$8, 133, 4, 3577);
-    			attr_dev(a, "href", "http://framed.wtf");
-    			attr_dev(a, "class", "svelte-15ry2au");
-    			add_location(a, file$8, 135, 4, 3613);
-    			add_location(br0, file$8, 136, 4, 3677);
-    			add_location(br1, file$8, 138, 4, 3724);
-    			add_location(br2, file$8, 139, 4, 3736);
-    			attr_dev(h3, "class", "svelte-15ry2au");
-    			add_location(h3, file$8, 140, 4, 3748);
-    			attr_dev(span, "class", "svelte-15ry2au");
-    			add_location(span, file$8, 141, 4, 3775);
-    			attr_dev(section, "class", "svelte-15ry2au");
-    			add_location(section, file$8, 132, 2, 3562);
+    			attr_dev(h2, "class", "svelte-l24vxx");
+    			add_location(h2, file$8, 135, 4, 3604);
+    			attr_dev(a0, "href", "http://framed.wtf");
+    			attr_dev(a0, "class", "svelte-l24vxx");
+    			add_location(a0, file$8, 137, 4, 3640);
+    			add_location(br0, file$8, 138, 4, 3704);
+    			add_location(br1, file$8, 140, 4, 3751);
+    			add_location(br2, file$8, 141, 4, 3763);
+    			attr_dev(h3, "class", "svelte-l24vxx");
+    			add_location(h3, file$8, 142, 4, 3775);
+    			attr_dev(span, "class", "svelte-l24vxx");
+    			add_location(span, file$8, 143, 4, 3802);
+    			attr_dev(section, "class", "svelte-l24vxx");
+    			add_location(section, file$8, 134, 2, 3589);
     			attr_dev(input, "type", "text");
-    			attr_dev(input, "placeholder", /*userPlaceholder*/ ctx[5]);
-    			attr_dev(input, "class", "svelte-15ry2au");
-    			add_location(input, file$8, 144, 4, 3995);
-    			attr_dev(div0, "class", "fadeIn inputGroup svelte-15ry2au");
-    			add_location(div0, file$8, 143, 2, 3958);
-    			attr_dev(footer, "class", "svelte-15ry2au");
-    			add_location(footer, file$8, 168, 2, 4916);
-    			attr_dev(div1, "id", "intro");
-    			attr_dev(div1, "class", "customScroll svelte-15ry2au");
-    			add_location(div1, file$8, 131, 0, 3521);
+    			attr_dev(input, "placeholder", /*userPlaceholder*/ ctx[6]);
+    			attr_dev(input, "class", "svelte-l24vxx");
+    			add_location(input, file$8, 146, 4, 4022);
+    			attr_dev(div0, "class", "fadeIn inputGroup svelte-l24vxx");
+    			add_location(div0, file$8, 145, 2, 3985);
+    			add_location(b, file$8, 171, 32, 4995);
+    			attr_dev(p0, "class", "svelte-l24vxx");
+    			add_location(p0, file$8, 171, 4, 4967);
+    			if (!src_url_equal(img0.src, img0_src_value = "https://www.svgrepo.com/show/353655/discord-icon.svg")) attr_dev(img0, "src", img0_src_value);
+    			attr_dev(img0, "class", "svelte-l24vxx");
+    			add_location(img0, file$8, 172, 127, 5174);
+    			attr_dev(a1, "href", "https://discord.gg/Svw7utAyNr");
+    			set_style(a1, "color", "#5865f2");
+    			attr_dev(a1, "class", "svelte-l24vxx");
+    			add_location(a1, file$8, 172, 49, 5096);
+    			attr_dev(p1, "class", "svelte-l24vxx");
+    			add_location(p1, file$8, 172, 4, 5051);
+    			if (!src_url_equal(img1.src, img1_src_value = "https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg")) attr_dev(img1, "src", img1_src_value);
+    			attr_dev(img1, "class", "svelte-l24vxx");
+    			add_location(img1, file$8, 173, 93, 5344);
+    			attr_dev(a2, "href", "https://ko-fi.com/colloquial");
+    			set_style(a2, "color", "#FF5E5B");
+    			attr_dev(a2, "class", "svelte-l24vxx");
+    			add_location(a2, file$8, 173, 20, 5271);
+    			attr_dev(p2, "class", "svelte-l24vxx");
+    			add_location(p2, file$8, 173, 4, 5255);
+    			attr_dev(div1, "id", "discord");
+    			attr_dev(div1, "class", "svelte-l24vxx");
+    			add_location(div1, file$8, 170, 2, 4943);
+    			attr_dev(footer, "class", "svelte-l24vxx");
+    			add_location(footer, file$8, 175, 2, 5429);
+    			attr_dev(div2, "id", "intro");
+    			attr_dev(div2, "class", "customScroll svelte-l24vxx");
+    			add_location(div2, file$8, 133, 0, 3548);
     		},
     		l: function claim(nodes) {
     			throw new Error_1$1("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div1, anchor);
-    			append_dev(div1, section);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, section);
     			append_dev(section, h2);
     			append_dev(section, t1);
-    			append_dev(section, a);
+    			append_dev(section, a0);
     			append_dev(section, t3);
     			append_dev(section, br0);
     			append_dev(section, t4);
@@ -2082,60 +2154,79 @@ var app = (function () {
     			append_dev(section, h3);
     			append_dev(section, t8);
     			append_dev(section, span);
-    			append_dev(div1, t10);
-    			append_dev(div1, div0);
+    			append_dev(div2, t10);
+    			append_dev(div2, div0);
     			append_dev(div0, input);
-    			set_input_value(input, /*Username*/ ctx[1]);
+    			set_input_value(input, /*Username*/ ctx[2]);
     			append_dev(div0, t11);
     			mount_component(button, div0, null);
-    			append_dev(div1, t12);
-    			if (if_block0) if_block0.m(div1, null);
-    			append_dev(div1, t13);
-    			if (if_block1) if_block1.m(div1, null);
-    			append_dev(div1, t14);
-    			append_dev(div1, footer);
+    			append_dev(div2, t12);
+    			if (if_block0) if_block0.m(div2, null);
+    			append_dev(div2, t13);
+    			if (if_block1) if_block1.m(div2, null);
+    			append_dev(div2, t14);
+    			append_dev(div2, div1);
+    			append_dev(div1, p0);
+    			append_dev(p0, t15);
+    			append_dev(p0, b);
+    			append_dev(b, t16);
+    			append_dev(p0, t17);
+    			append_dev(div1, t18);
+    			append_dev(div1, p1);
+    			append_dev(p1, t19);
+    			append_dev(p1, a1);
+    			append_dev(a1, t20);
+    			append_dev(a1, img0);
+    			append_dev(div1, t21);
+    			append_dev(div1, p2);
+    			append_dev(p2, t22);
+    			append_dev(p2, a2);
+    			append_dev(a2, t23);
+    			append_dev(a2, img1);
+    			append_dev(div2, t24);
+    			append_dev(div2, footer);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(input, "input", /*input_input_handler*/ ctx[18]),
-    					listen_dev(input, "input", /*handleInput*/ ctx[13], false, false, false)
+    					listen_dev(input, "input", /*input_input_handler*/ ctx[19]),
+    					listen_dev(input, "input", /*handleInput*/ ctx[14], false, false, false)
     				];
 
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (!current || dirty & /*userPlaceholder*/ 32) {
-    				attr_dev(input, "placeholder", /*userPlaceholder*/ ctx[5]);
+    			if (!current || dirty & /*userPlaceholder*/ 64) {
+    				attr_dev(input, "placeholder", /*userPlaceholder*/ ctx[6]);
     			}
 
-    			if (dirty & /*Username*/ 2 && input.value !== /*Username*/ ctx[1]) {
-    				set_input_value(input, /*Username*/ ctx[1]);
+    			if (dirty & /*Username*/ 4 && input.value !== /*Username*/ ctx[2]) {
+    				set_input_value(input, /*Username*/ ctx[2]);
     			}
 
     			const button_changes = {};
-    			if (dirty & /*usernameButtonOff*/ 16) button_changes.disabled = /*usernameButtonOff*/ ctx[4];
-    			if (dirty & /*vert*/ 1) button_changes.style = /*vert*/ ctx[0] ? "vert" : "inline";
+    			if (dirty & /*usernameButtonOff*/ 32) button_changes.disabled = /*usernameButtonOff*/ ctx[5];
+    			if (dirty & /*vert*/ 2) button_changes.style = /*vert*/ ctx[1] ? "vert" : "inline";
 
-    			if (dirty & /*$$scope, usernameButton*/ 33554436) {
+    			if (dirty & /*$$scope, usernameButton*/ 67108872) {
     				button_changes.$$scope = { dirty, ctx };
     			}
 
     			button.$set(button_changes);
 
-    			if (/*usernameSet*/ ctx[3]) {
+    			if (/*usernameSet*/ ctx[4]) {
     				if (if_block0) {
     					if_block0.p(ctx, dirty);
 
-    					if (dirty & /*usernameSet*/ 8) {
+    					if (dirty & /*usernameSet*/ 16) {
     						transition_in(if_block0, 1);
     					}
     				} else {
     					if_block0 = create_if_block_1$2(ctx);
     					if_block0.c();
     					transition_in(if_block0, 1);
-    					if_block0.m(div1, t13);
+    					if_block0.m(div2, t13);
     				}
     			} else if (if_block0) {
     				group_outros();
@@ -2147,18 +2238,18 @@ var app = (function () {
     				check_outros();
     			}
 
-    			if (/*joinError*/ ctx[8]) {
+    			if (/*joinError*/ ctx[9]) {
     				if (if_block1) {
     					if_block1.p(ctx, dirty);
 
-    					if (dirty & /*joinError*/ 256) {
+    					if (dirty & /*joinError*/ 512) {
     						transition_in(if_block1, 1);
     					}
     				} else {
     					if_block1 = create_if_block$4(ctx);
     					if_block1.c();
     					transition_in(if_block1, 1);
-    					if_block1.m(div1, t14);
+    					if_block1.m(div2, t14);
     				}
     			} else if (if_block1) {
     				group_outros();
@@ -2169,6 +2260,8 @@ var app = (function () {
 
     				check_outros();
     			}
+
+    			if (!current || dirty & /*filmTotal*/ 1) set_data_dev(t16, /*filmTotal*/ ctx[0]);
     		},
     		i: function intro(local) {
     			if (current) return;
@@ -2184,7 +2277,7 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div1);
+    			if (detaching) detach_dev(div2);
     			destroy_component(button);
     			if (if_block0) if_block0.d();
     			if (if_block1) if_block1.d();
@@ -2213,6 +2306,7 @@ var app = (function () {
     	validate_slots('IntroScreen', slots, []);
     	const dispatch = createEventDispatcher();
     	let { socket } = $$props;
+    	let { filmTotal } = $$props;
     	let vert = false;
 
     	//USERNAME
@@ -2246,26 +2340,26 @@ var app = (function () {
 
     	const handleInput = () => {
     		UsernameLength = false;
-    		$$invalidate(12, hostButtonOff = true);
-    		$$invalidate(7, joinButtonOff = true);
-    		$$invalidate(4, usernameButtonOff = true);
+    		$$invalidate(13, hostButtonOff = true);
+    		$$invalidate(8, joinButtonOff = true);
+    		$$invalidate(5, usernameButtonOff = true);
     		let checkingUser = Username.trim();
 
     		if (checkingUser.length >= 4 && checkingUser.length < 25) {
     			UsernameLength = true;
-    			$$invalidate(4, usernameButtonOff = false);
-    			$$invalidate(12, hostButtonOff = false);
+    			$$invalidate(5, usernameButtonOff = false);
+    			$$invalidate(13, hostButtonOff = false);
     		}
 
     		if (checkingUser && joinCode.length === 5) {
-    			$$invalidate(7, joinButtonOff = false);
-    			$$invalidate(12, hostButtonOff = true);
+    			$$invalidate(8, joinButtonOff = false);
+    			$$invalidate(13, hostButtonOff = true);
     		}
     	};
 
     	const joinRoom = () => {
     		socket.emit("room-exist", joinCode);
-    		$$invalidate(9, joinText = "Checking room!");
+    		$$invalidate(10, joinText = "Checking room!");
 
     		socket.on("room-exist-return", exists => {
     			if (exists) {
@@ -2277,35 +2371,35 @@ var app = (function () {
     					host: false
     				});
     			} else {
-    				$$invalidate(6, joinCode = "");
-    				$$invalidate(9, joinText = "Join!");
-    				$$invalidate(8, joinError = "Room does not exist, try again.");
+    				$$invalidate(7, joinCode = "");
+    				$$invalidate(10, joinText = "Join!");
+    				$$invalidate(9, joinError = "Room does not exist, try again.");
     			}
     		});
     	};
 
     	const setUsername = () => {
     		socket.emit("set-username", Username.trim());
-    		$$invalidate(1, Username = Username.toUpperCase());
-    		$$invalidate(2, usernameButton = "⏳");
+    		$$invalidate(2, Username = Username.toUpperCase());
+    		$$invalidate(3, usernameButton = "⏳");
 
     		socket.on("valid-username", valid => {
     			if (valid) {
-    				$$invalidate(2, usernameButton = `Welcome ${Username}!`);
+    				$$invalidate(3, usernameButton = `Welcome ${Username}!`);
 
     				if (Username.length > 10) {
-    					$$invalidate(2, usernameButton = `Welcome ${Username.substr(0, 10)}...!`);
+    					$$invalidate(3, usernameButton = `Welcome ${Username.substr(0, 10)}...!`);
     				}
 
-    				$$invalidate(3, usernameSet = true);
+    				$$invalidate(4, usernameSet = true);
     			} else {
-    				$$invalidate(2, usernameButton = `${Username} taken!`);
+    				$$invalidate(3, usernameButton = `${Username} taken!`);
 
     				if (Username.length > 10) {
-    					$$invalidate(2, usernameButton = `${Username.substr(0, 10)}... taken!`);
+    					$$invalidate(3, usernameButton = `${Username.substr(0, 10)}... taken!`);
     				}
 
-    				$$invalidate(3, usernameSet = false);
+    				$$invalidate(4, usernameSet = false);
     			}
     		});
     	};
@@ -2343,7 +2437,7 @@ var app = (function () {
     		console.log(roomCode);
     	};
 
-    	const writable_props = ['socket'];
+    	const writable_props = ['socket', 'filmTotal'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console_1$4.warn(`<IntroScreen> was created with unknown prop '${key}'`);
@@ -2351,20 +2445,21 @@ var app = (function () {
 
     	function input_input_handler() {
     		Username = this.value;
-    		$$invalidate(1, Username);
+    		$$invalidate(2, Username);
     	}
 
     	const func = () => {
-    		$$invalidate(11, nowJoin = true);
+    		$$invalidate(12, nowJoin = true);
     	};
 
     	function input_input_handler_1() {
     		joinCode = this.value;
-    		$$invalidate(6, joinCode);
+    		$$invalidate(7, joinCode);
     	}
 
     	$$self.$$set = $$props => {
-    		if ('socket' in $$props) $$invalidate(17, socket = $$props.socket);
+    		if ('socket' in $$props) $$invalidate(18, socket = $$props.socket);
+    		if ('filmTotal' in $$props) $$invalidate(0, filmTotal = $$props.filmTotal);
     	};
 
     	$$self.$capture_state = () => ({
@@ -2372,6 +2467,7 @@ var app = (function () {
     		dispatch,
     		slide,
     		socket,
+    		filmTotal,
     		Button,
     		Error: Error$1,
     		vert,
@@ -2398,21 +2494,22 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('socket' in $$props) $$invalidate(17, socket = $$props.socket);
-    		if ('vert' in $$props) $$invalidate(0, vert = $$props.vert);
-    		if ('Username' in $$props) $$invalidate(1, Username = $$props.Username);
+    		if ('socket' in $$props) $$invalidate(18, socket = $$props.socket);
+    		if ('filmTotal' in $$props) $$invalidate(0, filmTotal = $$props.filmTotal);
+    		if ('vert' in $$props) $$invalidate(1, vert = $$props.vert);
+    		if ('Username' in $$props) $$invalidate(2, Username = $$props.Username);
     		if ('UsernameLength' in $$props) UsernameLength = $$props.UsernameLength;
-    		if ('usernameButton' in $$props) $$invalidate(2, usernameButton = $$props.usernameButton);
-    		if ('usernameSet' in $$props) $$invalidate(3, usernameSet = $$props.usernameSet);
-    		if ('usernameButtonOff' in $$props) $$invalidate(4, usernameButtonOff = $$props.usernameButtonOff);
-    		if ('userPlaceholder' in $$props) $$invalidate(5, userPlaceholder = $$props.userPlaceholder);
-    		if ('joinCode' in $$props) $$invalidate(6, joinCode = $$props.joinCode);
-    		if ('joinButtonOff' in $$props) $$invalidate(7, joinButtonOff = $$props.joinButtonOff);
-    		if ('joinError' in $$props) $$invalidate(8, joinError = $$props.joinError);
-    		if ('joinText' in $$props) $$invalidate(9, joinText = $$props.joinText);
-    		if ('joinPlaceholder' in $$props) $$invalidate(10, joinPlaceholder = $$props.joinPlaceholder);
-    		if ('nowJoin' in $$props) $$invalidate(11, nowJoin = $$props.nowJoin);
-    		if ('hostButtonOff' in $$props) $$invalidate(12, hostButtonOff = $$props.hostButtonOff);
+    		if ('usernameButton' in $$props) $$invalidate(3, usernameButton = $$props.usernameButton);
+    		if ('usernameSet' in $$props) $$invalidate(4, usernameSet = $$props.usernameSet);
+    		if ('usernameButtonOff' in $$props) $$invalidate(5, usernameButtonOff = $$props.usernameButtonOff);
+    		if ('userPlaceholder' in $$props) $$invalidate(6, userPlaceholder = $$props.userPlaceholder);
+    		if ('joinCode' in $$props) $$invalidate(7, joinCode = $$props.joinCode);
+    		if ('joinButtonOff' in $$props) $$invalidate(8, joinButtonOff = $$props.joinButtonOff);
+    		if ('joinError' in $$props) $$invalidate(9, joinError = $$props.joinError);
+    		if ('joinText' in $$props) $$invalidate(10, joinText = $$props.joinText);
+    		if ('joinPlaceholder' in $$props) $$invalidate(11, joinPlaceholder = $$props.joinPlaceholder);
+    		if ('nowJoin' in $$props) $$invalidate(12, nowJoin = $$props.nowJoin);
+    		if ('hostButtonOff' in $$props) $$invalidate(13, hostButtonOff = $$props.hostButtonOff);
     		if ('hostCode' in $$props) hostCode = $$props.hostCode;
     	};
 
@@ -2421,6 +2518,7 @@ var app = (function () {
     	}
 
     	return [
+    		filmTotal,
     		vert,
     		Username,
     		usernameButton,
@@ -2448,7 +2546,7 @@ var app = (function () {
     class IntroScreen extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$8, create_fragment$8, safe_not_equal, { socket: 17 });
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, { socket: 18, filmTotal: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -2460,8 +2558,12 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*socket*/ ctx[17] === undefined && !('socket' in props)) {
+    		if (/*socket*/ ctx[18] === undefined && !('socket' in props)) {
     			console_1$4.warn("<IntroScreen> was created without expected prop 'socket'");
+    		}
+
+    		if (/*filmTotal*/ ctx[0] === undefined && !('filmTotal' in props)) {
+    			console_1$4.warn("<IntroScreen> was created without expected prop 'filmTotal'");
     		}
     	}
 
@@ -2470,6 +2572,14 @@ var app = (function () {
     	}
 
     	set socket(value) {
+    		throw new Error_1$1("<IntroScreen>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get filmTotal() {
+    		throw new Error_1$1("<IntroScreen>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set filmTotal(value) {
     		throw new Error_1$1("<IntroScreen>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -5144,17 +5254,20 @@ var app = (function () {
     const { Object: Object_1, console: console_1$1 } = globals;
     const file$1 = "src\\Game.svelte";
 
-    // (103:2) {:else}
+    // (104:2) {:else}
     function create_else_block_2(ctx) {
     	let introscreen;
     	let current;
 
     	introscreen = new IntroScreen({
-    			props: { socket: /*socket*/ ctx[0] },
+    			props: {
+    				socket: /*socket*/ ctx[0],
+    				filmTotal: /*filmTotal*/ ctx[9]
+    			},
     			$$inline: true
     		});
 
-    	introscreen.$on("boot", /*bootGame*/ ctx[9]);
+    	introscreen.$on("boot", /*bootGame*/ ctx[10]);
 
     	const block = {
     		c: function create() {
@@ -5187,14 +5300,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(103:2) {:else}",
+    		source: "(104:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (97:23) 
+    // (98:23) 
     function create_if_block_2(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -5267,14 +5380,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(97:23) ",
+    		source: "(98:23) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:2) {#if gameRunning}
+    // (92:2) {#if gameRunning}
     function create_if_block(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -5347,14 +5460,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(91:2) {#if gameRunning}",
+    		source: "(92:2) {#if gameRunning}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (100:4) {:else}
+    // (101:4) {:else}
     function create_else_block_1(ctx) {
     	let lobby;
     	let current;
@@ -5395,14 +5508,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(100:4) {:else}",
+    		source: "(101:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (98:4) {#if hosting}
+    // (99:4) {#if hosting}
     function create_if_block_3(ctx) {
     	let hostsettings;
     	let current;
@@ -5412,7 +5525,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	hostsettings.$on("startGame", /*hostStarts*/ ctx[10]);
+    	hostsettings.$on("startGame", /*hostStarts*/ ctx[11]);
 
     	const block = {
     		c: function create() {
@@ -5445,14 +5558,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(98:4) {#if hosting}",
+    		source: "(99:4) {#if hosting}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (94:4) {:else}
+    // (95:4) {:else}
     function create_else_block(ctx) {
     	let filmpicker;
     	let current;
@@ -5466,7 +5579,7 @@ var app = (function () {
     			$$inline: true
     		});
 
-    	filmpicker.$on("roundOver", /*showLeaderboard*/ ctx[11]);
+    	filmpicker.$on("roundOver", /*showLeaderboard*/ ctx[12]);
 
     	const block = {
     		c: function create() {
@@ -5499,14 +5612,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(94:4) {:else}",
+    		source: "(95:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (92:4) {#if leaderboardOn}
+    // (93:4) {#if leaderboardOn}
     function create_if_block_1(ctx) {
     	let leaderboard;
     	let current;
@@ -5555,7 +5668,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(92:4) {#if leaderboardOn}",
+    		source: "(93:4) {#if leaderboardOn}",
     		ctx
     	});
 
@@ -5584,7 +5697,7 @@ var app = (function () {
     			game = element("game");
     			if_block.c();
     			attr_dev(game, "class", "customScroll svelte-x1mj3k");
-    			add_location(game, file$1, 89, 0, 2535);
+    			add_location(game, file$1, 90, 0, 2537);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5657,7 +5770,8 @@ var app = (function () {
     	const dispatch = createEventDispatcher();
     	let { socket } = $$props;
     	let filmNames = Object.keys(filmData);
-    	console.log(`There are ${filmNames.length} films!`);
+    	let filmTotal = filmNames.length;
+    	console.log(`There are ${filmTotal} films!`);
     	let gameBooted = false;
     	let gameRunning = false;
     	let leaderboardOn = false;
@@ -5674,13 +5788,13 @@ var app = (function () {
 
     		if (storage.getItem("previous")) {
     			previous = JSON.parse(storage.getItem("previous"));
-    			if (previous.length + rounds > filmNames.length) previous = [];
+    			if (previous.length + rounds > filmTotal) previous = [];
     		}
 
     		let filmsChosen = [];
 
     		while (filmsChosen.length != rounds) {
-    			let filmNum = getRandomInt(filmNames.length);
+    			let filmNum = getRandomInt(filmTotal);
 
     			if (!filmsChosen.includes(filmNum) && !previous.includes(filmNum)) {
     				filmsChosen.push(filmNum);
@@ -5700,14 +5814,14 @@ var app = (function () {
 
     	function bootGame({ detail }) {
     		$$invalidate(1, gameBooted = true);
-    		$$invalidate(12, roomCode = detail.room);
+    		$$invalidate(13, roomCode = detail.room);
     		dispatch("roomCodeChange", detail);
     		$$invalidate(4, hosting = detail.host);
     		console.log(detail);
     	}
 
     	function hostStarts({ detail }) {
-    		if (detail.numberOfRounds > filmNames.length) detail.numberOfRounds = filmNames.length;
+    		if (detail.numberOfRounds > filmTotal) detail.numberOfRounds = filmTotal;
     		let generated = generateFilms(detail.numberOfRounds);
     		detail.films = generated;
     		console.log(detail);
@@ -5739,7 +5853,7 @@ var app = (function () {
 
     	$$self.$$set = $$props => {
     		if ('socket' in $$props) $$invalidate(0, socket = $$props.socket);
-    		if ('roomCode' in $$props) $$invalidate(12, roomCode = $$props.roomCode);
+    		if ('roomCode' in $$props) $$invalidate(13, roomCode = $$props.roomCode);
     	};
 
     	$$self.$capture_state = () => ({
@@ -5753,6 +5867,7 @@ var app = (function () {
     		Leaderboard,
     		filmData,
     		filmNames,
+    		filmTotal,
     		gameBooted,
     		gameRunning,
     		leaderboardOn,
@@ -5771,13 +5886,14 @@ var app = (function () {
     	$$self.$inject_state = $$props => {
     		if ('socket' in $$props) $$invalidate(0, socket = $$props.socket);
     		if ('filmNames' in $$props) $$invalidate(8, filmNames = $$props.filmNames);
+    		if ('filmTotal' in $$props) $$invalidate(9, filmTotal = $$props.filmTotal);
     		if ('gameBooted' in $$props) $$invalidate(1, gameBooted = $$props.gameBooted);
     		if ('gameRunning' in $$props) $$invalidate(2, gameRunning = $$props.gameRunning);
     		if ('leaderboardOn' in $$props) $$invalidate(3, leaderboardOn = $$props.leaderboardOn);
     		if ('hosting' in $$props) $$invalidate(4, hosting = $$props.hosting);
     		if ('roomData' in $$props) $$invalidate(5, roomData = $$props.roomData);
     		if ('leaderboardData' in $$props) $$invalidate(6, leaderboardData = $$props.leaderboardData);
-    		if ('roomCode' in $$props) $$invalidate(12, roomCode = $$props.roomCode);
+    		if ('roomCode' in $$props) $$invalidate(13, roomCode = $$props.roomCode);
     		if ('players' in $$props) $$invalidate(7, players = $$props.players);
     	};
 
@@ -5795,6 +5911,7 @@ var app = (function () {
     		leaderboardData,
     		players,
     		filmNames,
+    		filmTotal,
     		bootGame,
     		hostStarts,
     		showLeaderboard,
@@ -5805,7 +5922,7 @@ var app = (function () {
     class Game extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { socket: 0, roomCode: 12 });
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { socket: 0, roomCode: 13 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -5821,7 +5938,7 @@ var app = (function () {
     			console_1$1.warn("<Game> was created without expected prop 'socket'");
     		}
 
-    		if (/*roomCode*/ ctx[12] === undefined && !('roomCode' in props)) {
+    		if (/*roomCode*/ ctx[13] === undefined && !('roomCode' in props)) {
     			console_1$1.warn("<Game> was created without expected prop 'roomCode'");
     		}
     	}
