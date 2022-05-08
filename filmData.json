@@ -179,6 +179,36 @@
     "IMDB": "https://www.imdb.com/title/tt0120737/",
     "prefix": "https://i2.wp.com/caps.pictures/200/1-lotr-fellowship/full/lotr1-movie-screencaps.com-"
   },
+  "THE LORD OF THE RINGS: THE TWO TOWERS":{
+    "0": "03%20(1251).jpg",
+    "1": "10%20(1277).jpg",
+    "2": "31%20(1271).jpg",
+    "3": "02%20(1251).jpg",
+    "4": "62%20(1054).jpg",
+    "Title": "The Lord of the Rings: The Two Towers",
+    "Year": "2002",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZGMxZTdjZmYtMmE2Ni00ZTdkLWI5NTgtNjlmMjBiNzU2MmI5XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+    "Director": "Peter Jackson",
+    "Screenwriter": "Fran Walsh, Philippa Boyens, Peter Jackson",
+    "Starring": "Elijah Wood, Ian McKellen, Viggo Mortensen",
+    "IMDB": "https://www.imdb.com/title/tt0167261/",
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
+  },
+  "THE LORD OF THE RINGS: RETURN OF THE KING":{
+    "0": "01%20(853).jpg",
+    "1": "22%20(872).jpg",
+    "2": "16%20(872).jpg",
+    "3": "35%20(869).jpg",
+    "4": "55%20(807).jpg",
+    "Title": "The Lord of the Rings: Return of the King",
+    "Year": "2003",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg",
+    "Director": "Peter Jackson",
+    "Screenwriter": "Fran Walsh, Philippa Boyens, Peter Jackson",
+    "Starring": "Elijah Wood, Ian McKellen, Viggo Mortensen",
+    "IMDB": "https://www.imdb.com/title/tt0167260/",
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
+  },
   "THE THING": {
     "0": "10.jpg",
     "1": "2128.jpg",
