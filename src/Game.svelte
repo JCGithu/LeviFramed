@@ -83,6 +83,7 @@
   });
 
   function showLeaderboard({ detail }) {
+    console.log(detail);
     socket.emit("user-round", detail);
     leaderboardOn = true;
   }
@@ -97,7 +98,7 @@
     {/if}
   {:else if gameBooted}
     {#if hosting}
-      <HostSettings on:startGame={hostStarts} {players} />
+      <HostSettings on:startGame={hostStarts} {players} {roomCode} />
     {:else}
       <Lobby {players} />
     {/if}

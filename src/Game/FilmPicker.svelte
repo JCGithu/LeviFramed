@@ -12,6 +12,7 @@
   export let filmNames;
 
   let imgSRC;
+  let imgGrow = false;
   let turn = 1;
   let currentImg = 1;
   let currentGuess;
@@ -92,9 +93,11 @@
     let guessTarget = guesses[turn - 1];
     currentGuess = currentGuess.toUpperCase();
     guessTarget.text = currentGuess;
+    console.log(roomData);
     roundOutcome = {
       turns: turn,
       won: null,
+      currentRound: roomData.currentRound,
     };
     if (currentGuess === filmThisRound.name) {
       roundOver = true;
@@ -131,7 +134,14 @@
 
 <div class="customScroll" id="picker">
   <div id="topBox">
-    <img src={imgSRC} alt={filmThisRound.id} />
+    <img
+      src={imgSRC}
+      alt={filmThisRound.id}
+      on:click={() => {
+        imgGrow = !imgGrow;
+      }}
+      class={imgGrow ? "grow" : ""}
+    />
     <div class="numList">
       {#each { length: turn } as _, i}
         <div
@@ -184,6 +194,26 @@
     position: relative;
     outline: 2px rgba(1, 1, 1, 0.2) solid;
     box-shadow: 5px 5px 9px rgb(0 0 0 / 20%);
+    //transition: none;
+    cursor: pointer;
+    transition: all 1.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .grow {
+    border-radius: 0;
+    position: fixed;
+    width: 100vw;
+    max-width: 90vw;
+    max-height: 90vh;
+    z-index: 4;
+    object-fit: contain;
+    outline: none;
+    border: none;
+    @media (max-width: 580px) {
+      max-width: 90vh;
+      max-height: 90vw;
+      width: 100vh;
+      transform: rotate(90deg) translateX(25%);
+    }
   }
   #guessGrid {
     width: 100%;

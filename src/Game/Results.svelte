@@ -24,8 +24,9 @@
       style="margin-top"
       func={() => {
         dispatch("roundOver");
-      }}>Go to Leaderboard</Button
-    >
+      }}
+      >Wait next Round
+    </Button>
   </div>
   <div id="resultImg"><img class="fadeIn" src={data.Poster} alt={data.Title} /></div>
 </div>

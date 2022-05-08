@@ -25,7 +25,7 @@
   let joinButtonOff = true;
   let joinError = false;
   let joinText = "Join!";
-  let joinPlaceholder = "Room Code here";
+  let joinPlaceholder = "Room Code Here";
   let nowJoin = false;
 
   //HOST
@@ -143,6 +143,11 @@
     <h3>How to Play:</h3>
     <span>Each turn you will be shown a single image from a film. Guess what you think it is! Points are earned based on how few turns you take to guess the film.</span>
   </section>
+  <div id="discord">
+    <p>There are currently&nbsp;<b>{filmTotal}</b>&nbsp;films in the database!</p>
+    <p>If you'd like to add more please join the <a href="https://discord.gg/Svw7utAyNr" style="color: #5865f2;"> Discord&nbsp;<img src="https://www.svgrepo.com/show/353655/discord-icon.svg" /> </a></p>
+    <p>Or donate to <a href="https://ko-fi.com/colloquial" style="color: #FF5E5B">Ko-Fi&nbsp;<img src="https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg" /></a></p>
+  </div>
   <div class="fadeIn inputGroup">
     <input type="text" bind:value={Username} on:input={handleInput} placeholder={userPlaceholder} />
     <Button disabled={usernameButtonOff} style={vert ? "vert" : "inline"} func={setUsername}>{usernameButton}</Button>
@@ -168,11 +173,6 @@
   {#if joinError}
     <Error msg={joinError} />
   {/if}
-  <div id="discord">
-    <p>There are currently&nbsp;<b>{filmTotal}</b>&nbsp;films in the database!</p>
-    <p>If you'd like to add more please join the <a href="https://discord.gg/Svw7utAyNr" style="color: #5865f2;"> Discord&nbsp;<img src="https://www.svgrepo.com/show/353655/discord-icon.svg" /> </a></p>
-    <p>Or donate to <a href="https://ko-fi.com/colloquial" style="color: #FF5E5B">Ko-Fi&nbsp;<img src="https://storage.ko-fi.com/cdn/kofi_stroke_cup.svg" /></a></p>
-  </div>
   <footer>In chat no one can hear you scream...</footer>
 </div>
 
@@ -274,6 +274,7 @@
     text-align: justify;
     width: calc(100% - 3rem);
     margin: 0 1rem;
+    margin-bottom: 1rem;
     background-color: rgba(white, 0.1);
     border-radius: 1rem;
     padding: 0.5rem;

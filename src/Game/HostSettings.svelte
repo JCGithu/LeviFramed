@@ -9,6 +9,7 @@
 
   let roundTimerOn;
   export let players;
+  export let roomCode;
 
   let roundNumber = 5;
   let roundTimer = 60;
@@ -39,7 +40,9 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <div class="customScroll">
-  <h1>Settings</h1>
+  <h1>New Game</h1>
+  <p>You're now hosting a game with the room code:</p>
+  <h2>{roomCode}</h2>
   <div class="inputGroup">
     <h3>Number of Rounds</h3>
     <span id="inputWrap">
@@ -74,7 +77,8 @@
     </div>
   {/if} 
   -->
-  <Button style="wide margin-top" func={startGame}>Play!</Button>
+  <p><i>It's best to wait until all players are in-game before starting</i></p>
+  <Button style="wide margin-top" func={startGame}>Start Game!</Button>
   <PlayersList {players} />
 </div>
 
@@ -86,6 +90,13 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+  }
+  h1 {
+    margin: 0.5rem;
+  }
+  h2 {
+    margin: 0.2rem;
+    color: var(--accent);
   }
   .inputGroup {
     width: 100%;

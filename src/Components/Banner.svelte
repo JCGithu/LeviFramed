@@ -11,7 +11,13 @@
 
 <header>
   <input type="color" bind:value={gameColour} on:change={updateColour} />
-  <h2>Re-Framed</h2>
+  <h2
+    on:click={() => {
+      location.reload();
+    }}
+  >
+    Re-Framed
+  </h2>
   <span>
     {#if roomCode}
       <b>{host ? "Hosting" : "Room"}</b>{roomCode}
@@ -45,6 +51,17 @@
 </header>
 
 <style lang="scss">
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.3;
+    }
+  }
   h2 {
     color: white;
     font-size: clamp(40px, 4vh, 200px);
@@ -56,9 +73,14 @@
     align-items: center;
     margin: 0;
     padding: 0;
-    -webkit-filter: url(#chroma);
+    cursor: pointer;
+    -webkit-filter: none;
     width: 50vw;
     height: 100%;
+    transition: all 2s;
+    &:hover {
+      -webkit-filter: url(#chroma);
+    }
   }
   header {
     position: relative;
