@@ -403,6 +403,51 @@
     "Starring": "Lady Gaga, Bradley Cooper, Sam Elliott",
     "IMDB": "https://www.imdb.com/title/tt1517451/",
     "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/A_Star_Is_Born_(2018)_"
+  },
+  "A.I. ARTIFICIAL INTELLIGENCE":{
+    "0":"001.jpg",
+    "1": "020.jpg",
+    "2": "027.jpg",
+    "3": "014.jpg",
+    "4": "043.jpg",
+    "Title": "A.I. Artificial Intelligence",
+    "Year": "2001",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BNWU2NzEyMDYtM2MyOS00OGM3LWFkNzAtMzRiNzE2ZjU5ZTljXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_.jpg",
+    "Director": "Steven Spielberg",
+    "Screenwriter": "Brian Aldiss, Ian Watson, Steven Spielberg",
+    "Starring": "Haley Joel Osment, Jude Law, Frances O'Connor",
+    "IMDB": "https://www.imdb.com/title/tt0212720/",
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/imported_from_media_libray/ai"
+  },
+  "ADAPTION":{
+    "0":"05%20(41).jpg",
+    "1": "23%20(41).jpg",
+    "2": "18%20(41).jpg",
+    "3": "14%20(41).jpg",
+    "4": "31%20(41).jpg",
+    "Title": "Adaption.",
+    "Year": "2002",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BN2JjNzVhOTMtNTc3Yi00NGNjLWI3YjgtYjkyZTYzY2FmMmIxXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg",
+    "Director": "Spike Jonze",
+    "Screenwriter": "Charlie Kaufman, Susan Orlean",
+    "Starring": "Nicolas Cage, Meryl Streep, Chris Cooper",
+    "IMDB": "https://www.imdb.com/title/tt0268126/",
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
+  },
+  "AKIRA":{
+    "0": "003.jpg",
+    "1": "063.jpg",
+    "2": "013.jpg",
+    "3": "006.jpg",
+    "4": "008.jpg",
+    "Title": "Akira",
+    "Year": "1988",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BM2ZiZTk1ODgtMTZkNS00NTYxLWIxZTUtNWExZGYwZTRjODViXkEyXkFqcGdeQXVyMTE2MzA3MDM@._V1_FMjpg_UX1000_.jpg",
+    "Director": "Katsuhiro Ôtomo",
+    "Screenwriter": "Katsuhiro Ôtomo, Izô Hashimoto",
+    "Starring": "Mitsuo Iwata, Nozomu Sasaki, Mami Koyama",
+    "IMDB": "https://www.imdb.com/title/tt0094625/",
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/Akira_"
   }
   
 }
