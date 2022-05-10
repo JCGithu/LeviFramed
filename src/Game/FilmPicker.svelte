@@ -11,6 +11,10 @@
   export let filmData;
   export let filmNames;
 
+  import extraFilms from "./extrafilms";
+
+  let allFilms = [...filmNames, ...extraFilms];
+
   let imgSRC;
   let imgGrow = false;
   let turn = 1;
@@ -29,7 +33,6 @@
     guesses = [];
   }
   let autoselect = [];
-  console.log(roomData);
 
   let roundIndex = roomData.currentRound - 1;
   let filmThisRound = {
@@ -37,7 +40,7 @@
     id: roomData.films[roundIndex],
   };
   Object.assign(filmThisRound, filmData[filmThisRound.name]);
-  console.log(filmThisRound);
+  //console.log(filmThisRound);
 
   function setImage(num) {
     if (num === undefined) return;
@@ -61,17 +64,16 @@
     for (let j = autoselect.length - 1; j >= 0; j--) {
       if (!autoselect[j]) continue;
       let word = autoselect[j];
-      console.log(autoselect);
-      console.log(`${j}:${word}, ${barInput}, ${word.includes(barInput)}`);
+      //console.log(`${j}:${word}, ${barInput}, ${word.includes(barInput)}`);
       if (word.includes(barInput)) continue;
       autoselect.splice(j, 1);
       autoselect = autoselect;
     }
-    for (let i = 0; i < filmNames.length; i++) {
-      if (autoselect.includes(filmNames[i])) continue;
-      if (filmNames[i].includes(barInput)) {
-        autoselect = [...autoselect, filmNames[i]];
-        if (autoselect.length >= 6) break;
+    for (let i = 0; i < allFilms.length; i++) {
+      if (autoselect.length >= 6) break;
+      if (autoselect.includes(allFilms[i])) continue;
+      if (allFilms[i].includes(barInput)) {
+        autoselect = [...autoselect, allFilms[i]];
       }
     }
   };

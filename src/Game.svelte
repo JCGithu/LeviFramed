@@ -48,11 +48,7 @@
     return filmsChosen;
   }
 
-  socket.on("player-joined", (users) => {
-    console.log("Player joined room");
-    console.log(users);
-    players = users;
-  });
+  socket.on("player-joined", (users) => (players = users));
 
   function bootGame({ detail }) {
     gameBooted = true;
@@ -70,17 +66,18 @@
     socket.emit("host-start", detail);
   }
 
+  let userLogged = false;
   socket.on("round-start", (data) => {
     roomData = data;
     gameRunning = true;
     leaderboardOn = false;
+    if (!userLogged) {
+      socket.emit("log-user", data);
+      userLogged = true;
+    }
   });
 
-  socket.on("leaderboard-update", (board) => {
-    leaderboardData = board;
-    console.log("Leaderboard Updated");
-    console.log(leaderboardData);
-  });
+  socket.on("leaderboard-update", (board) => (leaderboardData = board));
 
   function showLeaderboard({ detail }) {
     console.log(detail);

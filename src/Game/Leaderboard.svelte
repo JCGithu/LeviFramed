@@ -5,8 +5,23 @@
   export let roomData;
   export let socket;
 
+  $: {
+    leaderboardUpdate(leaderboardData);
+  }
+
+  let startNewRound = true;
+  function leaderboardUpdate(newData) {
+    console.log("THAT DANG LEADERBOARD CHANGED");
+    for (let i = 0; i < newData.length; i++) {
+      if (newData[i].round !== roomData.currentRound) {
+        startNewRound = true;
+        return;
+      }
+    }
+    startNewRound = false;
+  }
+
   let gameOver = false;
-  let buttonText = `On to Round ${roomData.currentRound + 1}`;
   let leaveLeaderboard = () => {
     socket.emit("next-round", "");
   };
@@ -33,7 +48,7 @@
     {/each}
   </div>
   {#if hosting}
-    <Button style="margin-top" func={leaveLeaderboard}>{buttonText}</Button>
+    <Button style="margin-top" disabled={startNewRound} func={leaveLeaderboard}>{startNewRound ? "Waiting for players" : `On to Round ${roomData.currentRound + 1}`}</Button>
   {/if}
 </div>
 
@@ -44,10 +59,6 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    div {
-      max-height: 70%;
-      overflow-y: auto;
-    }
   }
   span {
     margin: 0.2rem;

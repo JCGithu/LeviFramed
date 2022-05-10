@@ -44,6 +44,21 @@
     "IMDB": "https://www.imdb.com/title/tt0092048",
     "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
+  "ALIENS": {
+    "0": "54%20(47).jpg",
+    "1": "17%20(52).jpg",
+    "2": "29%20(52).jpg",
+    "3": "58%20(47).jpg",
+    "4": "35%20(51).jpg",
+    "Title": "Aliens",
+    "Year": "1986",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BZGU2OGY5ZTYtMWNhYy00NjZiLWI0NjUtZmNhY2JhNDRmODU3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg",
+    "Director": "James Cameron",
+    "Screenwriter": "James Cameron, David Giler, Walter Hill",
+    "Starring": "Sigourney Weaver, Carrie Hann, Bill Paxton",
+    "IMDB": "https://www.imdb.com/title/tt0090605/",
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
+  },
   "ME AND EARL AND THE DYING GIRL":{
     "0": "Me_and_Earl_035.jpg",
     "1": "Me_and_Earl_062.jpg",

@@ -30,10 +30,12 @@
   }
 
   function startGame() {
-    dispatch("startGame", {
-      numberOfRounds: roundNumber,
-      roundTimer: roundTimerOn ? roundTimer : null,
-    });
+    if (confirm(`There's ${players.length} in the Lobby, sure you want to start?`) == true) {
+      dispatch("startGame", {
+        numberOfRounds: roundNumber,
+        roundTimer: roundTimerOn ? roundTimer : null,
+      });
+    }
   }
 </script>
 
