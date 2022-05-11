@@ -4844,7 +4844,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (42:2) {:else}
+    // (43:2) {:else}
     function create_else_block$1(ctx) {
     	let h1;
 
@@ -4852,7 +4852,7 @@ var app = (function () {
     		c: function create() {
     			h1 = element("h1");
     			h1.textContent = "Leaderboard!";
-    			add_location(h1, file$2, 42, 4, 1012);
+    			add_location(h1, file$2, 43, 4, 1074);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -4867,14 +4867,14 @@ var app = (function () {
     		block,
     		id: create_else_block$1.name,
     		type: "else",
-    		source: "(42:2) {:else}",
+    		source: "(43:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (40:2) {#if gameOver}
+    // (41:2) {#if gameOver}
     function create_if_block_1$1(ctx) {
     	let h1;
     	let t0;
@@ -4888,7 +4888,7 @@ var app = (function () {
     			t0 = text("Congrats ");
     			t1 = text(t1_value);
     			t2 = text("!");
-    			add_location(h1, file$2, 40, 4, 947);
+    			add_location(h1, file$2, 41, 4, 1009);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, h1, anchor);
@@ -4908,14 +4908,14 @@ var app = (function () {
     		block,
     		id: create_if_block_1$1.name,
     		type: "if",
-    		source: "(40:2) {#if gameOver}",
+    		source: "(41:2) {#if gameOver}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (46:4) {#each leaderboardData as dataPoint, i}
+    // (47:4) {#each leaderboardData as dataPoint, i}
     function create_each_block(ctx) {
     	let span;
     	let b;
@@ -4936,13 +4936,13 @@ var app = (function () {
     			t1 = text(": ");
     			t2 = text(t2_value);
     			t3 = text(" points");
-    			add_location(b, file$2, 46, 88, 1207);
+    			add_location(b, file$2, 47, 88, 1269);
 
     			attr_dev(span, "class", span_class_value = "" + (null_to_empty(/*dataPoint*/ ctx[8].round === /*roomData*/ ctx[2].currentRound
     			? "submitted"
     			: "") + " svelte-1o5b2w4"));
 
-    			add_location(span, file$2, 46, 6, 1125);
+    			add_location(span, file$2, 47, 6, 1187);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -4980,14 +4980,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(46:4) {#each leaderboardData as dataPoint, i}",
+    		source: "(47:4) {#each leaderboardData as dataPoint, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (50:2) {#if hosting}
+    // (51:2) {#if hosting}
     function create_if_block$1(ctx) {
     	let button;
     	let current;
@@ -5040,18 +5040,20 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(50:2) {#if hosting}",
+    		source: "(51:2) {#if hosting}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:4) <Button style="margin-top" disabled={startNewRound} func={leaveLeaderboard}>
+    // (52:4) <Button style="margin-top" disabled={startNewRound} func={leaveLeaderboard}>
     function create_default_slot(ctx) {
     	let t_value = (/*startNewRound*/ ctx[3]
     	? "Waiting for players"
-    	: `On to Round ${/*roomData*/ ctx[2].currentRound + 1}`) + "";
+    	: /*roomData*/ ctx[2].currentRound === /*roomData*/ ctx[2].numberOfRounds
+    		? "Replay?"
+    		: `On to Round ${/*roomData*/ ctx[2].currentRound + 1}`) + "";
 
     	let t;
 
@@ -5065,7 +5067,9 @@ var app = (function () {
     		p: function update(ctx, dirty) {
     			if (dirty & /*startNewRound, roomData*/ 12 && t_value !== (t_value = (/*startNewRound*/ ctx[3]
     			? "Waiting for players"
-    			: `On to Round ${/*roomData*/ ctx[2].currentRound + 1}`) + "")) set_data_dev(t, t_value);
+    			: /*roomData*/ ctx[2].currentRound === /*roomData*/ ctx[2].numberOfRounds
+    				? "Replay?"
+    				: `On to Round ${/*roomData*/ ctx[2].currentRound + 1}`) + "")) set_data_dev(t, t_value);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t);
@@ -5076,7 +5080,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(51:4) <Button style=\\\"margin-top\\\" disabled={startNewRound} func={leaveLeaderboard}>",
+    		source: "(52:4) <Button style=\\\"margin-top\\\" disabled={startNewRound} func={leaveLeaderboard}>",
     		ctx
     	});
 
@@ -5121,9 +5125,9 @@ var app = (function () {
     			t1 = space();
     			if (if_block1) if_block1.c();
     			attr_dev(div0, "class", "customScroll svelte-1o5b2w4");
-    			add_location(div0, file$2, 44, 2, 1046);
+    			add_location(div0, file$2, 45, 2, 1108);
     			attr_dev(div1, "class", "svelte-1o5b2w4");
-    			add_location(div1, file$2, 38, 0, 918);
+    			add_location(div1, file$2, 39, 0, 980);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5267,10 +5271,11 @@ var app = (function () {
 
     	if (roomData.currentRound === roomData.numberOfRounds) {
     		gameOver = true;
-    		buttonText = "Cheeky one more?";
 
     		leaveLeaderboard = () => {
-    			location.reload();
+    			if (confirm(`This will reload the page for a new game, are you sure?`) == true) {
+    				location.reload();
+    			}
     		};
     	}
 

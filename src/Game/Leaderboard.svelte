@@ -28,9 +28,10 @@
 
   if (roomData.currentRound === roomData.numberOfRounds) {
     gameOver = true;
-    buttonText = "Cheeky one more?";
     leaveLeaderboard = () => {
-      location.reload();
+      if (confirm(`This will reload the page for a new game, are you sure?`) == true) {
+        location.reload();
+      }
     };
   }
   import { fly } from "svelte/transition";
@@ -48,7 +49,7 @@
     {/each}
   </div>
   {#if hosting}
-    <Button style="margin-top" disabled={startNewRound} func={leaveLeaderboard}>{startNewRound ? "Waiting for players" : `On to Round ${roomData.currentRound + 1}`}</Button>
+    <Button style="margin-top" disabled={startNewRound} func={leaveLeaderboard}>{startNewRound ? "Waiting for players" : roomData.currentRound === roomData.numberOfRounds ? "Replay?" : `On to Round ${roomData.currentRound + 1}`}</Button>
   {/if}
 </div>
 
