@@ -36,6 +36,15 @@
     padding-top: 1rem;
     background-color: rgba(255, 255, 255, 0.1);
     overflow: hidden;
+    pointer-events: none;
+    @media (max-width: 580px) {
+      position: relative;
+      border-radius: 2rem;
+    }
+    @media (max-height: 850px) {
+      position: relative;
+      border-radius: 2rem;
+    }
   }
   span {
     border-radius: 0.5rem;

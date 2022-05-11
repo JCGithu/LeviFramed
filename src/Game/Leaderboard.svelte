@@ -1,5 +1,7 @@
 <script>
   import Button from "../Components/Button.svelte";
+  import PlayersPoints from "./PlayersPoints.svelte";
+
   export let leaderboardData = [{ username: "" }];
   export let hosting;
   export let roomData;
@@ -9,19 +11,25 @@
     leaderboardUpdate(leaderboardData);
   }
 
-  let startNewRound = true;
+  let waitingForPlayers = true;
+  let topPlayers = [];
   function leaderboardUpdate(newData) {
-    console.log("THAT DANG LEADERBOARD CHANGED");
+    topPlayers = [newData[0].username];
+    for (let j = 1; j < newData.length; j++) {
+      if (newData[j].points != newData[0].points) break
+      topPlayers.push(newData[j].username);
+    }
     for (let i = 0; i < newData.length; i++) {
       if (newData[i].round !== roomData.currentRound) {
-        startNewRound = true;
+        waitingForPlayers = true;
         return;
       }
     }
-    startNewRound = false;
+    waitingForPlayers = false;
   }
 
   let gameOver = false;
+  let reveal = false;
   let leaveLeaderboard = () => {
     socket.emit("next-round", "");
   };
@@ -34,22 +42,28 @@
       }
     };
   }
-  import { fly } from "svelte/transition";
 </script>
 
 <div>
   {#if gameOver}
-    <h1>Congrats {leaderboardData[0].username}!</h1>
+    <h1>Final Round</h1>
+    {#if waitingForPlayers}
+      <h2>Waiting for players to finish...</h2>
+    {:else}
+      {#if !reveal}
+        <Button func={()=>{reveal = true}}>Reveal final results!</Button>
+      {:else}
+        <h1>The winner{topPlayers.length > 1 ? 's are': ' is'} <br>{topPlayers.toString().replace(',', ', ')}!</h1>
+        <Button style="wide margin-top" func={leaveLeaderboard}>Replay?</Button>
+        <PlayersPoints {leaderboardData} {roomData}/>
+      {/if}
+    {/if}
   {:else}
     <h1>Leaderboard!</h1>
-  {/if}
-  <div class="customScroll">
-    {#each leaderboardData as dataPoint, i}
-      <span in:fly class={dataPoint.round === roomData.currentRound ? "submitted" : ""}><b>{dataPoint.username}</b>: {dataPoint.points} points</span>
-    {/each}
-  </div>
-  {#if hosting}
-    <Button style="margin-top" disabled={startNewRound} func={leaveLeaderboard}>{startNewRound ? "Waiting for players" : roomData.currentRound === roomData.numberOfRounds ? "Replay?" : `On to Round ${roomData.currentRound + 1}`}</Button>
+    {#if hosting}
+      <Button style="vert" disabled={waitingForPlayers} func={leaveLeaderboard}>{waitingForPlayers ? "Waiting for players" : `On to Round ${roomData.currentRound + 1}`}</Button>
+    {/if}
+    <PlayersPoints {leaderboardData} {roomData}/>
   {/if}
 </div>
 
@@ -61,18 +75,7 @@
     justify-content: center;
     width: 100%;
   }
-  span {
-    margin: 0.2rem;
-    padding: 1rem;
-    width: 50%;
+  h1{
     text-align: center;
-    border-radius: 0.5rem;
-    transition: 0.5s all;
-    opacity: 0.5;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-  }
-  .submitted {
-    border-color: var(--accent);
-    opacity: 1;
   }
 </style>
