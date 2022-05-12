@@ -314,7 +314,7 @@
     "IMDB": "https://www.imdb.com/title/tt6265828/",
     "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
-  "AMÉLIE": {
+  "AMELIE": {
     "0": "10%20(63).jpg",
     "1": "37%20(62).jpg",
     "2": "48%20(59).jpg",
@@ -327,6 +327,21 @@
     "Screenwriter": "Guillaume Laurant, Jean-Pierre Jeunet",
     "Starring": "Audrey Tautou, Mathieu Kassovitz",
     "IMDB": "https://www.imdb.com/title/tt0211915/",
+    "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
+  },
+  "AMERICAN HUSTLE":{
+    "0": "02%20(69).jpg",
+    "1": "50%20(66).jpg",
+    "2": "04%20(69).jpg",
+    "3": "22%20(70).jpg",
+    "4": "03%20(69).jpg",
+    "Title": "American Hustle",
+    "Year": "2013",
+    "Poster": "https://m.media-amazon.com/images/M/MV5BMmM4YzJjZGMtNjQxMy00NjdlLWJjYTItZWZkYzdhOTdhNzFiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_FMjpg_UX1000_.jpg",
+    "Director": "David O. Russell",
+    "Screenwriter": "Eric Warren Singer, David O. Russell",
+    "Starring": "Christian Bale, Amy Adams, Bradley Cooper",
+    "IMDB": "https://www.imdb.com/title/tt1800241/",
     "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/"
   },
   "12 YEARS A SLAVE":{
@@ -434,13 +449,13 @@
     "IMDB": "https://www.imdb.com/title/tt0212720/",
     "prefix": "https://film-grab.com/wp-content/uploads/photo-gallery/imported_from_media_libray/ai"
   },
-  "ADAPTION":{
+  "ADAPTATION":{
     "0":"05%20(41).jpg",
     "1": "23%20(41).jpg",
     "2": "18%20(41).jpg",
     "3": "14%20(41).jpg",
     "4": "31%20(41).jpg",
-    "Title": "Adaption.",
+    "Title": "Adaptation.",
     "Year": "2002",
     "Poster": "https://m.media-amazon.com/images/M/MV5BN2JjNzVhOTMtNTc3Yi00NGNjLWI3YjgtYjkyZTYzY2FmMmIxXkEyXkFqcGdeQXVyMjUzOTY1NTc@._V1_.jpg",
     "Director": "Spike Jonze",
