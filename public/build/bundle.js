@@ -5884,7 +5884,7 @@ var app = (function () {
     const { Object: Object_1, console: console_1$1 } = globals;
     const file$1 = "src\\Game.svelte";
 
-    // (102:2) {:else}
+    // (112:2) {:else}
     function create_else_block_2(ctx) {
     	let introscreen;
     	let current;
@@ -5930,14 +5930,14 @@ var app = (function () {
     		block,
     		id: create_else_block_2.name,
     		type: "else",
-    		source: "(102:2) {:else}",
+    		source: "(112:2) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (96:23) 
+    // (106:23) 
     function create_if_block_2(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -6010,14 +6010,14 @@ var app = (function () {
     		block,
     		id: create_if_block_2.name,
     		type: "if",
-    		source: "(96:23) ",
+    		source: "(106:23) ",
     		ctx
     	});
 
     	return block;
     }
 
-    // (90:2) {#if gameRunning}
+    // (100:2) {#if gameRunning}
     function create_if_block(ctx) {
     	let current_block_type_index;
     	let if_block;
@@ -6090,14 +6090,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(90:2) {#if gameRunning}",
+    		source: "(100:2) {#if gameRunning}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (99:4) {:else}
+    // (109:4) {:else}
     function create_else_block_1(ctx) {
     	let lobby;
     	let current;
@@ -6138,14 +6138,14 @@ var app = (function () {
     		block,
     		id: create_else_block_1.name,
     		type: "else",
-    		source: "(99:4) {:else}",
+    		source: "(109:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (97:4) {#if hosting}
+    // (107:4) {#if hosting}
     function create_if_block_3(ctx) {
     	let hostsettings;
     	let current;
@@ -6192,14 +6192,14 @@ var app = (function () {
     		block,
     		id: create_if_block_3.name,
     		type: "if",
-    		source: "(97:4) {#if hosting}",
+    		source: "(107:4) {#if hosting}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (93:4) {:else}
+    // (103:4) {:else}
     function create_else_block(ctx) {
     	let filmpicker;
     	let current;
@@ -6246,14 +6246,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(93:4) {:else}",
+    		source: "(103:4) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (91:4) {#if leaderboardOn}
+    // (101:4) {#if leaderboardOn}
     function create_if_block_1(ctx) {
     	let leaderboard;
     	let current;
@@ -6302,7 +6302,7 @@ var app = (function () {
     		block,
     		id: create_if_block_1.name,
     		type: "if",
-    		source: "(91:4) {#if leaderboardOn}",
+    		source: "(101:4) {#if leaderboardOn}",
     		ctx
     	});
 
@@ -6331,7 +6331,7 @@ var app = (function () {
     			game = element("game");
     			if_block.c();
     			attr_dev(game, "class", "customScroll svelte-x1mj3k");
-    			add_location(game, file$1, 88, 0, 2522);
+    			add_location(game, file$1, 98, 0, 2793);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -6403,6 +6403,15 @@ var app = (function () {
     	validate_slots('Game', slots, []);
     	const dispatch = createEventDispatcher();
     	let { socket } = $$props;
+    	let filmDataB, filmNamesB, filmTotalB;
+
+    	fetch("filmData.json").then(async res => {
+    		filmDataB = await res.json();
+    		filmNamesB = Object.keys(filmDataB);
+    		filmTotalB = filmNamesB.length;
+    		console.log(`There are ${filmTotalB} B films!`);
+    	});
+
     	let filmNames = Object.keys(filmData);
     	let filmTotal = filmNames.length;
     	console.log(`There are ${filmTotal} films!`);
@@ -6499,6 +6508,9 @@ var app = (function () {
     		HostSettings,
     		FilmPicker,
     		Leaderboard,
+    		filmDataB,
+    		filmNamesB,
+    		filmTotalB,
     		filmData,
     		filmNames,
     		filmTotal,
@@ -6520,6 +6532,9 @@ var app = (function () {
 
     	$$self.$inject_state = $$props => {
     		if ('socket' in $$props) $$invalidate(1, socket = $$props.socket);
+    		if ('filmDataB' in $$props) filmDataB = $$props.filmDataB;
+    		if ('filmNamesB' in $$props) filmNamesB = $$props.filmNamesB;
+    		if ('filmTotalB' in $$props) filmTotalB = $$props.filmTotalB;
     		if ('filmNames' in $$props) $$invalidate(9, filmNames = $$props.filmNames);
     		if ('filmTotal' in $$props) $$invalidate(10, filmTotal = $$props.filmTotal);
     		if ('gameBooted' in $$props) $$invalidate(2, gameBooted = $$props.gameBooted);
@@ -9938,7 +9953,7 @@ var app = (function () {
     const { Error: Error_1, console: console_1 } = globals;
     const file = "src\\App.svelte";
 
-    // (41:2) {:catch error}
+    // (40:2) {:catch error}
     function create_catch_block(ctx) {
     	let error;
     	let current;
@@ -9975,14 +9990,14 @@ var app = (function () {
     		block,
     		id: create_catch_block.name,
     		type: "catch",
-    		source: "(41:2) {:catch error}",
+    		source: "(40:2) {:catch error}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (39:2) {:then value}
+    // (38:2) {:then value}
     function create_then_block(ctx) {
     	let game;
     	let updating_roomCode;
@@ -10040,14 +10055,14 @@ var app = (function () {
     		block,
     		id: create_then_block.name,
     		type: "then",
-    		source: "(39:2) {:then value}",
+    		source: "(38:2) {:then value}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (37:22)       <p>Waiting!</p>    {:then value}
+    // (36:22)       <p>Waiting!</p>    {:then value}
     function create_pending_block(ctx) {
     	let p;
 
@@ -10055,7 +10070,7 @@ var app = (function () {
     		c: function create() {
     			p = element("p");
     			p.textContent = "Waiting!";
-    			add_location(p, file, 37, 4, 981);
+    			add_location(p, file, 36, 4, 979);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, p, anchor);
@@ -10072,7 +10087,7 @@ var app = (function () {
     		block,
     		id: create_pending_block.name,
     		type: "pending",
-    		source: "(37:22)       <p>Waiting!</p>    {:then value}",
+    		source: "(36:22)       <p>Waiting!</p>    {:then value}",
     		ctx
     	});
 
@@ -10115,7 +10130,7 @@ var app = (function () {
     			t = space();
     			info.block.c();
     			attr_dev(main, "class", "svelte-11r9dvm");
-    			add_location(main, file, 34, 0, 913);
+    			add_location(main, file, 33, 0, 911);
     		},
     		l: function claim(nodes) {
     			throw new Error_1("options.hydrate only works if the component was compiled with the `hydratable: true` option");

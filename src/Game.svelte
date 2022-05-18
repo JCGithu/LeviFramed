@@ -8,6 +8,16 @@
   import HostSettings from "./Game/HostSettings.svelte";
   import FilmPicker from "./Game/FilmPicker.svelte";
   import Leaderboard from "./Game/Leaderboard.svelte";
+
+  let filmDataB, filmNamesB, filmTotalB;
+
+  fetch("filmData.json").then(async (res) => {
+    filmDataB = await res.json();
+    filmNamesB = Object.keys(filmDataB);
+    filmTotalB = filmNamesB.length;
+    console.log(`There are ${filmTotalB} B films!`);
+  });
+
   import filmData from "../filmData.json";
 
   let filmNames = Object.keys(filmData);

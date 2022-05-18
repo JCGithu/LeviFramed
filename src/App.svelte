@@ -1,10 +1,9 @@
 <script>
   import Banner from "./Components/Banner.svelte";
   import Game from "./Game.svelte";
-
   import Error from "./Components/Error.svelte";
-
   import io from "socket.io-client";
+
   let socket = io("https://reframed.herokuapp.com/");
   const urlParams = new URLSearchParams(window.location.search);
   let dev = urlParams.has("dev");
